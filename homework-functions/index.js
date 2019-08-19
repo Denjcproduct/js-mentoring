@@ -112,3 +112,5 @@ function createAutoComplete(array) {
     return trie.find(prefix);
   };
 }
+
+const trie = new Trie();
