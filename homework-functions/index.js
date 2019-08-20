@@ -1,48 +1,5 @@
 module.exports = createAutoComplete;
 
-// First implementation of autocomplete
-
-// function createAutoComplete(array) {
-//   return function(value) {
-//     if (!value || value === "") {
-//       return [];
-//     }
-//     const reg = new RegExp(
-//       value
-//         .split("")
-//         .join("\\w*")
-//         .replace(/\W/, ""),
-//       "i"
-//     );
-//     const result = array.filter(element => {
-//       const elementFristLetters = element.slice(0, value.length);
-//       if (reg.test(elementFristLetters)) {
-//         return element;
-//       }
-//     });
-//     return result;
-//   };
-// }
-
-// Second implementation of autocomplete
-
-// function createAutoComplete(array) {
-//   return function(value) {
-//     const valueInLowerCase = value ? value.toLowerCase() : "";
-//     const result = array.filter(element => {
-//       const elementInLowerCase = element.toLowerCase();
-//       if (value === "" || !value) {
-//         return false;
-//       } else if (elementInLowerCase.startsWith(valueInLowerCase)) {
-//         return element;
-//       }
-//     });
-//     return result;
-//   };
-// }
-
-//:TODO add Case insensitive to createAutoComplete function
-
 function TrieNode(key) {
   this.key = key;
   this.parent = null;
@@ -77,21 +34,41 @@ Trie.prototype.insert = function(word) {
     }
   }
 };
-
 Trie.prototype.find = function(prefix) {
-  let node = this.root;
-  let output = [];
-  for (let i = 0; i < prefix.length; i++) {
-    if (node.children[prefix[i]]) {
-      node = node.children[prefix[i]];
-    } else {
-      return output;
+  var node = this.root;
+  var output = [];
+  let prefixFirstLetter = prefix[0];
+  let lowerNode = this.root;
+  let upperNode = this.root;
+  let prefixLettersWithoutFirst = prefix.substr(1);
+  if (node.children[prefixFirstLetter.toLowerCase()]) {
+    lowerNode = node.children[prefixFirstLetter.toLowerCase()];
+    if (prefixLettersWithoutFirst) {
+      for (let i = 0; i < prefixLettersWithoutFirst.length; i++) {
+        if (lowerNode.children[prefixLettersWithoutFirst[i]]) {
+          lowerNode = lowerNode.children[prefixLettersWithoutFirst[i]];
+        } else {
+          return output;
+        }
+      }
     }
+    findAllWords(lowerNode, output);
   }
-  findAllWords(node, output);
+  if (node.children[prefixFirstLetter.toUpperCase()]) {
+    upperNode = node.children[prefixFirstLetter.toUpperCase()];
+    if (prefixLettersWithoutFirst) {
+      for (let i = 0; i < prefixLettersWithoutFirst.length; i++) {
+        if (upperNode.children[prefixLettersWithoutFirst[i]]) {
+          upperNode = upperNode.children[prefixLettersWithoutFirst[i]];
+        } else {
+          return output;
+        }
+      }
+    }
+    findAllWords(upperNode, output);
+  }
   return output;
 };
-
 function findAllWords(node, arr) {
   if (node.end) {
     arr.push(node.getWord());
@@ -102,6 +79,7 @@ function findAllWords(node, arr) {
 }
 
 function createAutoComplete(array) {
+  const trie = new Trie();
   array.forEach(word => {
     trie.insert(word);
   });
@@ -112,5 +90,3 @@ function createAutoComplete(array) {
     return trie.find(prefix);
   };
 }
-
-const trie = new Trie();
