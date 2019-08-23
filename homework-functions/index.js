@@ -1,5 +1,4 @@
 module.exports = createAutoComplete;
-
 class TrieNode {
   constructor(key) {
     this.key = key;
@@ -37,36 +36,14 @@ class Trie {
   find(prefix) {
     let node = this.root;
     let output = [];
-    let prefixFirstLetter = prefix[0];
-    let lowerNode = this.root;
-    let upperNode = this.root;
-    let prefixLettersWithoutFirst = prefix.substr(1);
-    if (node.children[prefixFirstLetter.toLowerCase()]) {
-      lowerNode = node.children[prefixFirstLetter.toLowerCase()];
-      if (prefixLettersWithoutFirst) {
-        for (let i = 0; i < prefixLettersWithoutFirst.length; i++) {
-          if (lowerNode.children[prefixLettersWithoutFirst[i]]) {
-            lowerNode = lowerNode.children[prefixLettersWithoutFirst[i]];
-          } else {
-            return output;
-          }
-        }
+    for (let i = 0; i < prefix.length; i++) {
+      if (node.children[prefix[i]]) {
+        node = node.children[prefix[i]];
+      } else {
+        return output;
       }
-      findAllWords(lowerNode, output);
     }
-    if (node.children[prefixFirstLetter.toUpperCase()]) {
-      upperNode = node.children[prefixFirstLetter.toUpperCase()];
-      if (prefixLettersWithoutFirst) {
-        for (let i = 0; i < prefixLettersWithoutFirst.length; i++) {
-          if (upperNode.children[prefixLettersWithoutFirst[i]]) {
-            upperNode = upperNode.children[prefixLettersWithoutFirst[i]];
-          } else {
-            return output;
-          }
-        }
-      }
-      findAllWords(upperNode, output);
-    }
+    findAllWords(node, output);
     return output;
   }
 }
@@ -78,6 +55,9 @@ function findAllWords(node, arr) {
     findAllWords(node.children[child], arr);
   }
 }
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 function createAutoComplete(array) {
   const trie = new Trie();
   array.forEach(word => {
@@ -87,6 +67,11 @@ function createAutoComplete(array) {
     if (!prefix || prefix === "") {
       return [];
     }
-    return trie.find(prefix);
+    const prefixInLowerCase = prefix.toLowerCase();
+    const capitalizePrefix = capitalizeFirstLetter(prefix);
+    const lowerResult = trie.find(prefixInLowerCase);
+    const upperResult = trie.find(capitalizePrefix);
+    const result = lowerResult.concat(upperResult);
+    return result;
   };
 }
