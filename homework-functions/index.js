@@ -1,10 +1,10 @@
-module.exports = createAutoComplete;
 class TrieNode {
   constructor(key) {
     this.key = key;
     this.parent = null;
     this.children = {};
     this.end = false;
+    this.count = null;
   }
   getWord() {
     let output = [];
@@ -20,7 +20,7 @@ class Trie {
   constructor() {
     this.root = new TrieNode(null);
   }
-  insert(word) {
+  insert(word, count) {
     let node = this.root;
     for (let i = 0; i < word.length; i++) {
       if (!node.children[word[i]]) {
@@ -30,6 +30,7 @@ class Trie {
       node = node.children[word[i]];
       if (i == word.length - 1) {
         node.end = true;
+        node.count = count;
       }
     }
   }
@@ -43,13 +44,16 @@ class Trie {
         return output;
       }
     }
+
     findAllWords(node, output);
     return output;
   }
 }
 function findAllWords(node, arr) {
   if (node.end) {
-    arr.push(node.getWord());
+    for (let k = 0; k < node.count; k++) {
+      arr.push(node.getWord());
+    }
   }
   for (let child in node.children) {
     findAllWords(node.children[child], arr);
@@ -58,16 +62,28 @@ function findAllWords(node, arr) {
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+function lowerFirstLetter(string) {
+  return string.charAt(0).toLowerCase() + string.slice(1);
+}
 function createAutoComplete(array) {
   const trie = new Trie();
-  array.forEach(word => {
-    trie.insert(word);
+  const counts = array.reduce(function(obj, cur) {
+    if (!obj[cur]) {
+      obj[cur] = 0;
+    }
+    obj[cur]++;
+    return obj;
+  }, {});
+  const nonRepeatWords = [...new Set(array)];
+  nonRepeatWords.forEach(word => {
+    let wordCount = counts[word];
+    trie.insert(word, wordCount);
   });
   return function(prefix) {
     if (!prefix || prefix === "") {
       return [];
     }
-    const prefixInLowerCase = prefix.toLowerCase();
+    const prefixInLowerCase = lowerFirstLetter(prefix);
     const capitalizePrefix = capitalizeFirstLetter(prefix);
     const lowerResult = trie.find(prefixInLowerCase);
     const upperResult = trie.find(capitalizePrefix);
