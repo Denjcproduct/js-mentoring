@@ -2,6 +2,8 @@ const pushMethod = function(array, value) {
   const nextElement = array.length;
   array[nextElement] = value;
 };
+
+//:TODO Написать свой метод splice
 const chunk = function chunkMethod(arr, size) {
   const cache = [];
   const arrayValues = [...arr];
