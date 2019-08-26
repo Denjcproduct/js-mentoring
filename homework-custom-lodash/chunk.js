@@ -1,5 +1,5 @@
 const pushMethod = function(array, value) {
-  const nextElement = array.length - 1 + 1;
+  const nextElement = array.length;
   array[nextElement] = value;
 };
 const chunk = function chunkMethod(arr, size) {
@@ -14,4 +14,4 @@ const chunk = function chunkMethod(arr, size) {
   }
   return cache;
 };
-console.log(chunk(["a", "e", "b", "c", "n", "y", "o", "p"], 5));
+console.log(chunk(["a", "e", "b", "c", "n", "y", "o", "p"], 7));
