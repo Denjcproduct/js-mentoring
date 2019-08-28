@@ -1,12 +1,4 @@
-const shiftMethod = function(array) {
-  const arr = [...array];
-  let resultArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    resultArr[i] = arr[i + 1];
-  }
-  resultArr.length--;
-  return resultArr;
-};
+import {shiftMethod} from "./helpers/functions.js";
 
 const drop = function dropMethod(array, number = 1) {
   let result = [];

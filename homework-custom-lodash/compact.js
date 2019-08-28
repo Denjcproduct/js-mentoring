@@ -1,7 +1,5 @@
-const pushMethod = function(array, value) {
-  const nextElement = array.length;
-  array[nextElement] = value;
-};
+import {pushMethod} from "./helpers/functions.js";
+
 const compact = function compactMethod(arr) {
   const resultArray = [];
   for (let i = 0; i <= arr.length; i++) {
