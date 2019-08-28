@@ -1,16 +1,26 @@
-const spliceMethod = function(array, startIndex, removeCount) {
-  let resultArray = [];
-  if (startIndex > 0) {
-    for (let i = 0; i <= array.length; i++) {
-      resultArray[i] = array[i + startIndex];
-    }
-    resultArray.length = removeCount;
-    return resultArray;
+const sliceMethod = function(array, start, end) {
+  let length = array == null ? 0 : array.length;
+  if (!length) {
+    return [];
   }
-  if (startIndex === 0) {
-    array.length = removeCount;
-    return array;
+  start = start == null ? 0 : start;
+  end = end === undefined ? length : end;
+  if (start < 0) {
+    start = -start > length ? 0 : length + start;
   }
+  end = end > length ? length : end;
+  if (end < 0) {
+    end += length;
+  }
+  length = start > end ? 0 : (end - start) >>> 0;
+  start >>>= 0;
+
+  let index = -1;
+  const result = new Array(length);
+  while (++index < length) {
+    result[index] = array[index + start];
+  }
+  return result;
 };
 
 const take = function takeMethod(array, number = 1) {
@@ -21,8 +31,8 @@ const take = function takeMethod(array, number = 1) {
     return array;
   }
   if (array.length > 0) {
-    return spliceMethod(array, 0, number);
+    return sliceMethod(array, 0, number);
   }
 };
 
-console.log(take([1, 2, 3, 4, 5, 6], 2));
+console.log(take([1, 2, 3, 4, 5, 6], 3));
