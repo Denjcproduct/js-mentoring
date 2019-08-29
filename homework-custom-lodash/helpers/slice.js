@@ -1,19 +1,4 @@
-export const pushMethod = function(array, value) {
-  const nextElement = array.length;
-  array[nextElement] = value;
-};
-
-export const shiftMethod = function(array) {
-  const arr = [...array];
-  let resultArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    resultArr[i] = arr[i + 1];
-  }
-  resultArr.length--;
-  return resultArr;
-};
-
-export const sliceMethod = function(array, start, end) {
+const slice = function(array, start, end) {
   let length = array == null ? 0 : array.length;
   if (!length) {
     return [];
@@ -37,3 +22,5 @@ export const sliceMethod = function(array, start, end) {
   }
   return result;
 };
+
+module.exports = slice;

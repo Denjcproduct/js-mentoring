@@ -1,0 +1,22 @@
+{
+  "name": "js-mentoring",
+  "version": "1.0.0",
+  "description": "My active email: **egoden@tut.by**\r My mobile phone: +375 (44) 739-35-47",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Denjcproduct/js-mentoring.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Denjcproduct/js-mentoring/issues"
+  },
+  "homepage": "https://github.com/Denjcproduct/js-mentoring#readme",
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
+}

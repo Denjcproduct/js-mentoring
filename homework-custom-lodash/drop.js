@@ -1,4 +1,4 @@
-import {shiftMethod} from "./helpers/functions.js";
+const shift = require("./helpers/shift.js");
 
 const drop = function dropMethod(array, number = 1) {
   let result = [];
@@ -11,14 +11,14 @@ const drop = function dropMethod(array, number = 1) {
   if (array.length > number) {
     for (let j = 0; j < number; j++) {
       if (result.length > 0) {
-        result = shiftMethod(result);
+        result = shift(result);
       }
       if (result.length === 0) {
-        result = shiftMethod(array);
+        result = shift(array);
       }
     }
   }
   return result;
 };
 
-console.log(drop([1, 2, 3, 4, 5], 6));
+module.exports = drop;

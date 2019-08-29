@@ -1,4 +1,5 @@
-import {sliceMethod, pushMethod} from "./helpers/functions.js";
+const slice = require("./helpers/slice.js");
+const push = require("./helpers/push.js");
 
 const chunk = function chunkMethod(arr, size = 1) {
   const cache = [];
@@ -7,10 +8,10 @@ const chunk = function chunkMethod(arr, size = 1) {
     return cache;
   }
   for (let i = 0; i < arrayValues.length; i += size) {
-    let arrayValue = sliceMethod(arrayValues, i, i + size);
-    pushMethod(cache, arrayValue);
+    let arrayValue = slice(arrayValues, i, i + size);
+    push(cache, arrayValue);
   }
   return cache;
 };
 
-console.log(chunk(["a", "e", "b", "c", "n", "y", "o", "p"], 2));
+module.exports = chunk;
