@@ -1,5 +1,5 @@
 const drop = require("./drop.js");
-
+//:TODO Доделать метод
 const dropWhile = function dropWhileMethod(array, predicate) {
   let dropNumber = {};
   let dropArray = {};
