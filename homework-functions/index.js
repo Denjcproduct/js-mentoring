@@ -6,20 +6,13 @@ class TrieNode {
     this.end = false;
     this.count = null;
   }
-  getWord() {
-    let output = [];
-    let node = this;
-    while (node !== null) {
-      output.unshift(node.key);
-      node = node.parent;
-    }
-    return output.join("");
-  }
 }
+
 class Trie {
   constructor() {
     this.root = new TrieNode(null);
   }
+
   insert(word, count) {
     let node = this.root;
     for (let i = 0; i < word.length; i++) {
@@ -34,6 +27,7 @@ class Trie {
       }
     }
   }
+
   find(prefix) {
     let node = this.root;
     let output = [];
@@ -49,22 +43,35 @@ class Trie {
     return output;
   }
 }
+
+function getWord(trieNode) {
+  let output = [];
+  let node = trieNode;
+  while (node !== null) {
+    output.push(node.key);
+    node = node.parent;
+  }
+  output.reverse();
+  return output.join("");
+}
+
 function findAllWords(node, arr) {
   if (node.end) {
     for (let k = 0; k < node.count; k++) {
-      arr.push(node.getWord());
+      arr.push(getWord(node));
     }
   }
   for (let child in node.children) {
     findAllWords(node.children[child], arr);
   }
 }
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+
+function capitalizeFirstLetter(string, toCapital = true) {
+  return toCapital
+    ? string.charAt(0).toUpperCase() + string.slice(1)
+    : string.charAt(0).toLowerCase() + string.slice(1);
 }
-function lowerFirstLetter(string) {
-  return string.charAt(0).toLowerCase() + string.slice(1);
-}
+
 function createAutoComplete(array) {
   const trie = new Trie();
   const counts = array.reduce(function(obj, cur) {
@@ -83,7 +90,7 @@ function createAutoComplete(array) {
     if (!prefix || prefix === "") {
       return [];
     }
-    const prefixInLowerCase = lowerFirstLetter(prefix);
+    const prefixInLowerCase = capitalizeFirstLetter(prefix, false);
     const capitalizePrefix = capitalizeFirstLetter(prefix);
     const lowerResult = trie.find(prefixInLowerCase);
     const upperResult = trie.find(capitalizePrefix);
