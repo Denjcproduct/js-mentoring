@@ -38,9 +38,7 @@ class Trie {
         return output;
       }
     }
-
-    findAllWords(node, output);
-    return output;
+    return findAllWords(node);
   }
 }
 
@@ -55,15 +53,17 @@ function getWord(trieNode) {
   return output.join("");
 }
 
-function findAllWords(node, arr) {
+function findAllWords(node, arr = []) {
+  let resultArr = arr;
   if (node.end) {
     for (let k = 0; k < node.count; k++) {
-      arr.push(getWord(node));
+      resultArr.push(getWord(node));
     }
   }
   for (let child in node.children) {
-    findAllWords(node.children[child], arr);
+    findAllWords(node.children[child], resultArr);
   }
+  return resultArr;
 }
 
 function capitalizeFirstLetter(string, toCapital = true) {
