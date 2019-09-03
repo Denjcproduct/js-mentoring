@@ -1,5 +1,5 @@
 const find = function findMethod(collection, predicate, fromIndex) {
-  const i = fromIndex || 0;
+  let i = fromIndex || 0;
   const collLength = collection == null ? 0 : collection.length;
   if (typeof predicate === "function") {
     while (i < collLength) {
@@ -11,6 +11,22 @@ const find = function findMethod(collection, predicate, fromIndex) {
     }
   }
   if (typeof predicate === "object") {
+    console.log(collection);
+    while (i < collLength) {
+      for (let collKey in collection[i]) {
+        for (let objKey in predicate) {
+          console.log(collection[i][collKey]);
+          console.log(predicate[objKey]);
+          if (
+            collKey === objKey &&
+            collection[i][collKey] === predicate[objKey]
+          ) {
+            console.log(collection[i]);
+          }
+        }
+      }
+      i++;
+    }
   }
   return undefined;
 };
