@@ -1,3 +1,5 @@
+// :TODO Доделать метод
+
 const find = function findMethod(collection, predicate, fromIndex) {
   let i = fromIndex || 0;
   const collLength = collection == null ? 0 : collection.length;
@@ -11,18 +13,16 @@ const find = function findMethod(collection, predicate, fromIndex) {
     }
   }
   if (typeof predicate === "object") {
-    console.log(collection);
+    while (i < collLength) {
+      console.log(collection[i]);
+      i++;
+    }
+  }
+  if (typeof predicate === "string") {
     while (i < collLength) {
       for (let collKey in collection[i]) {
-        for (let objKey in predicate) {
-          console.log(collection[i][collKey]);
-          console.log(predicate[objKey]);
-          if (
-            collKey === objKey &&
-            collection[i][collKey] === predicate[objKey]
-          ) {
-            console.log(collection[i]);
-          }
+        if (collKey === predicate && collection[i][collKey]) {
+          return collection[i];
         }
       }
       i++;
