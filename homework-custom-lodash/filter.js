@@ -1,12 +1,11 @@
 const filter = function filterMethod(array, predicate) {
-  let index = -1;
   let resIndex = 0;
   const length = array == null ? 0 : array.length;
   const emptyArray = [];
   if (typeof predicate === "function") {
-    while (++index < length) {
-      const value = array[index];
-      if (predicate(value, index, array)) {
+    for (let i = 0; i < length; i++) {
+      const value = array[i];
+      if (predicate(value, i, array)) {
         emptyArray[resIndex++] = value;
       }
     }

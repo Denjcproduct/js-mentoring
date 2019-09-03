@@ -1,6 +1,5 @@
 const includes = function(collection, value, fromIndex) {
   let n = fromIndex || 0;
-  let k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
   function sameValueZero(x, y) {
     return (
       x === y ||
@@ -12,11 +11,11 @@ const includes = function(collection, value, fromIndex) {
     let len = array.length;
     /*действия если collection массив */
     if (len > 0) {
-      while (k < len) {
-        if (sameValueZero(collection[k], value)) {
+      while (n < len) {
+        if (sameValueZero(collection[n], value)) {
           return true;
         }
-        k++;
+        n++;
       }
       return false;
     }
