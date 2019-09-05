@@ -1,4 +1,4 @@
-const isPartialEqual = require("./helpers/isPartialEqual");
+// :TODO Доделать метод
 
 const find = function findMethod(collection, predicate, fromIndex) {
   let i = fromIndex || 0;
@@ -14,9 +14,7 @@ const find = function findMethod(collection, predicate, fromIndex) {
   }
   if (typeof predicate === "object") {
     while (i < collLength) {
-      if (isPartialEqual(predicate, collection[i])) {
-        return collection[i];
-      }
+      console.log(collection[i]);
       i++;
     }
   }
@@ -33,4 +31,20 @@ const find = function findMethod(collection, predicate, fromIndex) {
   return undefined;
 };
 
-module.exports = find;
+var users = [
+  {user: "barney", age: 36, active: true},
+  {user: "fred", age: 40, active: false},
+  {user: "pebbles", age: 1, active: true},
+  {user: "denis", age: 24, active: true},
+  {user: "egor", age: 24, active: false},
+  {user: "Anton", age: 24, active: true}
+];
+
+console.log(
+  find(users, function(o) {
+    return o.age < 40;
+  })
+);
+console.log(find(users, {age: 1, active: true}));
+console.log(find(users, ["active", false]));
+console.log(find(users, "active"));
