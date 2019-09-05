@@ -1,7 +1,6 @@
-const shift = require("./helpers/shift.js");
+const slice = require("./helpers/slice");
 
 const drop = function dropMethod(array, number = 1) {
-  let result = [];
   if (array.length <= number) {
     return [];
   }
@@ -9,16 +8,8 @@ const drop = function dropMethod(array, number = 1) {
     return array;
   }
   if (array.length > number) {
-    for (let j = 0; j < number; j++) {
-      if (result.length > 0) {
-        result = shift(result);
-      }
-      if (result.length === 0) {
-        result = shift(array);
-      }
-    }
+    return slice(array, number);
   }
-  return result;
 };
 
 module.exports = drop;

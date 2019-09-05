@@ -1,13 +1,8 @@
-const push = require("./helpers/push.js");
+const filter = require("./filter");
 
 const compact = function compactMethod(arr) {
-  const resultArray = [];
-  for (let i = 0; i <= arr.length; i++) {
-    if (arr[i]) {
-      push(resultArray, arr[i]);
-    }
-  }
-  return resultArray;
+  const result = filter(arr, element => element);
+  return result;
 };
 
 module.exports = compact;
