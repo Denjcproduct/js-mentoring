@@ -1,38 +1,33 @@
+const forEach = require("./helpers/forEach");
+const isPartialEqual = require("./helpers/isPartialEqual");
+const push = require("./helpers/push");
+
 const filter = function filterMethod(array, predicate) {
-  let resIndex = 0;
-  const length = array == null ? 0 : array.length;
-  const emptyArray = [];
+  const resultArray = [];
   if (typeof predicate === "function") {
-    for (let i = 0; i < length; i++) {
-      const value = array[i];
-      if (predicate(value, i, array)) {
-        emptyArray[resIndex++] = value;
+    forEach(array, (element, index) => {
+      if (predicate(element, index, array)) {
+        push(resultArray, element);
       }
-    }
+    });
   }
   if (typeof predicate === "object") {
-    for (let i = 0; i < array.length; i++) {
-      for (let arrKey in array[i]) {
-        for (let objKey in predicate) {
-          if (array[i][arrKey] === predicate[objKey]) {
-            emptyArray[resIndex++] = array[i];
-          }
-        }
+    forEach(array, element => {
+      if (isPartialEqual(predicate, element)) {
+        push(resultArray, element);
       }
-    }
+    });
   }
   if (typeof predicate === "string") {
-    for (let i = 0; i < array.length; i++) {
-      for (let key in array[i]) {
-        if (key === predicate && array[i][key]) {
-          emptyArray[resIndex++] = array[i];
+    forEach(array, element => {
+      for (let key in element) {
+        if (key === predicate && element[key]) {
+          push(resultArray, element);
         }
       }
-    }
+    });
   }
-  const res = new Set(emptyArray);
-  const result = [...res.values()];
-  return result;
+  return resultArray;
 };
 
 module.exports = filter;

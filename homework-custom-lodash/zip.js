@@ -1,31 +1,7 @@
 const map = require("./map.js");
 const filter = require("./filter.js");
-
-const baseProperty = function(key) {
-  return object => (object == null ? undefined : object[key]);
-};
-
-const isLength = function(value) {
-  const MAX_SAFE_INTEGER = 9007199254740991;
-  return (
-    typeof value == "number" &&
-    value > -1 &&
-    value % 1 == 0 &&
-    value <= MAX_SAFE_INTEGER
-  );
-};
-
-const isObjectLike = function(value) {
-  return typeof value == "object" && value !== null;
-};
-
-const isArrayLike = function(value) {
-  return value != null && typeof value != "function" && isLength(value.length);
-};
-
-const isArrayLikeObject = function(value) {
-  return isObjectLike(value) && isArrayLike(value);
-};
+const isArrayLikeObject = require("./helpers/isArrayLikeObject");
+const baseProperty = require("./helpers/baseProperty");
 
 const zip = function zipMethod(...array) {
   if (!(array != null && array.length)) {

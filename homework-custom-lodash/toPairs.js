@@ -1,7 +1,5 @@
 const push = require("./helpers/push");
 
-// :TODO переделать метод hasOwnProperty
-
 const toPairs = function toPairsMethod(object) {
   let resArr = [];
   for (let key in object) {

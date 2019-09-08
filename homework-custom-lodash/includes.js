@@ -1,16 +1,12 @@
+const sameValueZero = require("./helpers/sameValueZero");
+const isArrayLike = require("./helpers/isArrayLike");
+const isObjectLike = require("./helpers/isObjectLike");
+
 const includes = function(collection, value, fromIndex) {
   let n = fromIndex || 0;
-  function sameValueZero(x, y) {
-    return (
-      x === y ||
-      (typeof x === "number" && typeof y === "number" && isNaN(x) && isNaN(y))
-    );
-  }
   if (typeof collection === "object") {
-    let array = Array.from(collection);
-    let len = array.length;
-    /*действия если collection массив */
-    if (len > 0) {
+    if (isArrayLike(collection)) {
+      let len = collection.length;
       while (n < len) {
         if (sameValueZero(collection[n], value)) {
           return true;
@@ -19,8 +15,7 @@ const includes = function(collection, value, fromIndex) {
       }
       return false;
     }
-    /*действия если collection объект */
-    if (len === 0) {
+    if (isObjectLike(collection)) {
       for (let key in collection) {
         if (collection[key] === value) {
           return true;
@@ -29,7 +24,6 @@ const includes = function(collection, value, fromIndex) {
       return false;
     }
   }
-  /*действия если collection строка */
   if (typeof collection === "string") {
     if (!value) {
       return false;
