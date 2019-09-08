@@ -1,4 +1,4 @@
-const slice = require("./helpers/slice.js");
+const slice = require("./helpers/slice");
 
 const take = function takeMethod(array, number = 1) {
   if (number === 0) {

@@ -1,4 +1,4 @@
-const zip = require("../zip.js");
+const zip = require("../zip");
 
 const arr1 = ["a", "b"];
 const arr2 = [1, 2];

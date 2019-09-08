@@ -1,4 +1,4 @@
-const push = require("./helpers/push.js");
+const push = require("./helpers/push");
 const isArrayLike = require("./helpers/isArrayLike");
 const isObjectLike = require("./helpers/isObjectLike");
 const forEach = require("./helpers/forEach");

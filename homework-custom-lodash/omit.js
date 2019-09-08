@@ -1,4 +1,4 @@
-const includes = require("./includes.js");
+const includes = require("./includes");
 
 const omit = function omitMethod(object, paths) {
   const resObject = {};

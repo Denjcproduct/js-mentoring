@@ -1,4 +1,4 @@
-const take = require("../take.js");
+const take = require("../take");
 
 describe("Check LodashTake Method", () => {
   it("Check LodashTake Method Example 1", () => {

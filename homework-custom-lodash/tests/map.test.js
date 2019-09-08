@@ -1,4 +1,4 @@
-const map = require("../map.js");
+const map = require("../map");
 
 function square(n) {
   return n * n;

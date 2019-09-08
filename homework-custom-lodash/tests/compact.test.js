@@ -1,4 +1,4 @@
-const compact = require("../compact.js");
+const compact = require("../compact");
 
 describe("Check LodashCompact Method", () => {
   it("Check LodashCompact Method Example 1", () => {

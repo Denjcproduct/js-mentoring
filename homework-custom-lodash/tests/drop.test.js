@@ -1,4 +1,4 @@
-const drop = require("../drop.js");
+const drop = require("../drop");
 
 describe("Check LodashDrop Method", () => {
   it("Check LodashDrop Method Example 1", () => {

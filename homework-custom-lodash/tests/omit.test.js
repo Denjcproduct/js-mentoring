@@ -1,4 +1,4 @@
-const omit = require("../omit.js");
+const omit = require("../omit");
 
 const object = {
   a: 1,

@@ -1,4 +1,4 @@
-const includes = require("../includes.js");
+const includes = require("../includes");
 
 const arr1 = [1, 2, 3];
 const object1 = {a: 1, b: 2};

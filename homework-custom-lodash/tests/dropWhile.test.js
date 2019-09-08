@@ -1,4 +1,4 @@
-const dropWhile = require("../dropWhile.js");
+const dropWhile = require("../dropWhile");
 
 const users = [
   {user: "barney", active: false},

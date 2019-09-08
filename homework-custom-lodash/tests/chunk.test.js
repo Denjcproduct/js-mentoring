@@ -1,4 +1,4 @@
-const chunk = require("../chunk.js");
+const chunk = require("../chunk");
 
 describe("Check LodashChunk Method", () => {
   it("Check LodashChunk Method Example 1", () => {

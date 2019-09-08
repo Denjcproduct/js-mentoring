@@ -1,4 +1,4 @@
-const pick = require("../pick.js");
+const pick = require("../pick");
 
 const object = {
   a: 1,

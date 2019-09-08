@@ -1,4 +1,4 @@
-const filter = require("../filter.js");
+const filter = require("../filter");
 
 var users = [
   {user: "barney", age: 36, active: true},

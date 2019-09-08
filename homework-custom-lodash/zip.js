@@ -1,5 +1,5 @@
-const map = require("./map.js");
-const filter = require("./filter.js");
+const map = require("./map");
+const filter = require("./filter");
 const isArrayLikeObject = require("./helpers/isArrayLikeObject");
 const baseProperty = require("./helpers/baseProperty");
 
