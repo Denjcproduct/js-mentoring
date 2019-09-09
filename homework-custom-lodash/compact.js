@@ -1,4 +1,4 @@
-const filter = require("./filter");
+const filter = require('./filter');
 
 const compact = function compactMethod(arr) {
   const result = filter(arr, element => element);

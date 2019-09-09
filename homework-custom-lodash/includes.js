@@ -1,10 +1,10 @@
-const sameValueZero = require("./helpers/sameValueZero");
-const isArrayLike = require("./helpers/isArrayLike");
-const isObjectLike = require("./helpers/isObjectLike");
+const sameValueZero = require('./helpers/sameValueZero');
+const isArrayLike = require('./helpers/isArrayLike');
+const isObjectLike = require('./helpers/isObjectLike');
 
-const includes = function(collection, value, fromIndex) {
+const includes = function includesMethod(collection, value, fromIndex) {
   let n = fromIndex || 0;
-  if (typeof collection === "object") {
+  if (typeof collection === 'object') {
     if (isArrayLike(collection)) {
       let len = collection.length;
       while (n < len) {
@@ -24,13 +24,14 @@ const includes = function(collection, value, fromIndex) {
       return false;
     }
   }
-  if (typeof collection === "string") {
+  if (typeof collection === 'string') {
     if (!value) {
       return false;
     }
-    const reg = new RegExp(value, "i");
+    const reg = new RegExp(value, 'i');
     return reg.test(collection);
   }
+  return undefined;
 };
 
 module.exports = includes;

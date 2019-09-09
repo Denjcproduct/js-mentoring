@@ -1,13 +1,13 @@
-const push = require("./helpers/push");
-const isArrayLike = require("./helpers/isArrayLike");
-const isObjectLike = require("./helpers/isObjectLike");
-const forEach = require("./helpers/forEach");
+const push = require('./helpers/push');
+const isArrayLike = require('./helpers/isArrayLike');
+const isObjectLike = require('./helpers/isObjectLike');
+const forEach = require('./helpers/forEach');
 
 const map = function mapMethod(array, iteratee) {
   let index = -1;
   let data = [];
-  if (typeof iteratee !== "function") {
-    let values = [];
+  if (typeof iteratee !== 'function') {
+    const values = [];
     forEach(array, element => {
       for (let key in element) {
         push(values, element[key]);

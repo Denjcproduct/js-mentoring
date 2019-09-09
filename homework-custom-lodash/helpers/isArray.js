@@ -1,4 +1,4 @@
-const isArray = function(obj) {
+const isArray = function isArrayMethod(obj) {
   return Array.isArray(obj);
 };
 

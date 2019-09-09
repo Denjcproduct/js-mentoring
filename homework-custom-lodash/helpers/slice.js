@@ -1,4 +1,5 @@
-const slice = function(array, start, end) {
+// :TODO поправить битовые операторы
+const slice = function sliceMethod(array, start, end) {
   let length = array == null ? 0 : array.length;
   if (!length) {
     return [];

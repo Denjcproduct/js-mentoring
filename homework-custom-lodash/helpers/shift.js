@@ -1,6 +1,6 @@
-const shift = function(array) {
+const shift = function shiftMethod(array) {
   const arr = [...array];
-  let resultArr = [];
+  const resultArr = [];
   for (let i = 0; i < arr.length; i++) {
     resultArr[i] = arr[i + 1];
   }

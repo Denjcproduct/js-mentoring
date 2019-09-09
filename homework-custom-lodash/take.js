@@ -1,4 +1,4 @@
-const slice = require("./helpers/slice");
+const slice = require('./helpers/slice');
 
 const take = function takeMethod(array, number = 1) {
   if (number === 0) {
@@ -10,6 +10,7 @@ const take = function takeMethod(array, number = 1) {
   if (array.length > 0) {
     return slice(array, 0, number);
   }
+  return [];
 };
 
 module.exports = take;

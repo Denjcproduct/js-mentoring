@@ -1,4 +1,4 @@
-const isPartialEqual = function(a, b) {
+const isPartialEqual = function isPartialEqualMethod(a, b) {
   if (!Array.isArray(a)) {
     for (let key in a) {
       if (a[key] !== b[key]) {
@@ -17,6 +17,7 @@ const isPartialEqual = function(a, b) {
     }
     return false;
   }
+  return false;
 };
 
 module.exports = isPartialEqual;

@@ -1,4 +1,4 @@
-const slice = require("./helpers/slice");
+const slice = require('./helpers/slice');
 
 const drop = function dropMethod(array, number = 1) {
   if (array.length <= number) {
@@ -10,6 +10,7 @@ const drop = function dropMethod(array, number = 1) {
   if (array.length > number) {
     return slice(array, number);
   }
+  return false;
 };
 
 module.exports = drop;

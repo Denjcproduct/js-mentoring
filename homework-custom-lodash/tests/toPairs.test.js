@@ -1,4 +1,4 @@
-const toPairs = require("../toPairs");
+const toPairs = require('../toPairs');
 
 function Foo() {
   this.a = 1;
@@ -8,8 +8,8 @@ function Foo() {
 Foo.prototype.c = 3;
 Foo.prototype.d = 3;
 
-describe("Check LodashToPairsMethod", () => {
-  it("Check LodashToPairsMethod Method Example 1", () => {
-    expect(toPairs(new Foo())).toEqual([["a", 1], ["b", 2]]);
+describe('Check LodashToPairsMethod', () => {
+  it('Check LodashToPairsMethod Method Example 1', () => {
+    expect(toPairs(new Foo())).toEqual([['a', 1], ['b', 2]]);
   });
 });
