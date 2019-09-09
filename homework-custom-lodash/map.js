@@ -8,15 +8,15 @@ const map = function mapMethod(array, iteratee) {
   let data = [];
   if (typeof iteratee !== 'function') {
     const values = [];
-    forEach(array, element => {
-      for (let key in element) {
+    forEach(array, (element) => {
+      for (const key in element) {
         push(values, element[key]);
       }
     });
     return values;
   }
   if (isObjectLike(array)) {
-    for (let key in array) {
+    for (const key in array) {
       push(data, array[key]);
     }
   }

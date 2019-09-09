@@ -9,7 +9,7 @@ const find = function findMethod(collection, predicate, fromIndex) {
       if (predicate(value, i, collection)) {
         return value;
       }
-      i++;
+      i += 1;
     }
   }
   if (typeof predicate === 'object') {
@@ -17,17 +17,17 @@ const find = function findMethod(collection, predicate, fromIndex) {
       if (isPartialEqual(predicate, collection[i])) {
         return collection[i];
       }
-      i++;
+      i += 1;
     }
   }
   if (typeof predicate === 'string') {
     while (i < collLength) {
-      for (let collKey in collection[i]) {
+      for (const collKey in collection[i]) {
         if (collKey === predicate && collection[i][collKey]) {
           return collection[i];
         }
       }
-      i++;
+      i += 1;
     }
   }
   return undefined;

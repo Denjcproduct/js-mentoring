@@ -2,9 +2,9 @@ const push = require('./helpers/push');
 
 const toPairs = function toPairsMethod(object) {
   const resArr = [];
-  for (let key in object) {
+  for (const key in object) {
     if (object.hasOwnProperty(key)) {
-      let objArr = [];
+      const objArr = [];
       push(objArr, key);
       push(objArr, object[key]);
       push(resArr, objArr);

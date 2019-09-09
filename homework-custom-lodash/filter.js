@@ -12,15 +12,15 @@ const filter = function filterMethod(array, predicate) {
     });
   }
   if (typeof predicate === 'object') {
-    forEach(array, element => {
+    forEach(array, (element) => {
       if (isPartialEqual(predicate, element)) {
         push(resultArray, element);
       }
     });
   }
   if (typeof predicate === 'string') {
-    forEach(array, element => {
-      for (let key in element) {
+    forEach(array, (element) => {
+      for (const key in element) {
         if (key === predicate && element[key]) {
           push(resultArray, element);
         }

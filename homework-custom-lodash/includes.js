@@ -6,17 +6,17 @@ const includes = function includesMethod(collection, value, fromIndex) {
   let n = fromIndex || 0;
   if (typeof collection === 'object') {
     if (isArrayLike(collection)) {
-      let len = collection.length;
+      const len = collection.length;
       while (n < len) {
         if (sameValueZero(collection[n], value)) {
           return true;
         }
-        n++;
+        n += 1;
       }
       return false;
     }
     if (isObjectLike(collection)) {
-      for (let key in collection) {
+      for (const key in collection) {
         if (collection[key] === value) {
           return true;
         }

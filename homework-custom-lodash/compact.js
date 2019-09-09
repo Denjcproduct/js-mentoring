@@ -1,7 +1,7 @@
 const filter = require('./filter');
 
 const compact = function compactMethod(arr) {
-  const result = filter(arr, element => element);
+  const result = filter(arr, (element) => element);
   return result;
 };
 

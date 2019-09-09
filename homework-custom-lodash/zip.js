@@ -8,7 +8,7 @@ const zip = function zipMethod(...array) {
     return [];
   }
   let length = 0;
-  array = filter(array, group => {
+  array = filter(array, (group) => {
     if (isArrayLikeObject(group)) {
       length = Math.max(group.length, length);
       return true;

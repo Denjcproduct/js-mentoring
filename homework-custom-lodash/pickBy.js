@@ -1,6 +1,6 @@
 const pickBy = function pickByMethod(object, predicate) {
   const resObj = {};
-  for (let key in object) {
+  for (const key in object) {
     if (predicate(object[key])) {
       resObj[key] = object[key];
     }

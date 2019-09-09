@@ -18,7 +18,7 @@ const dropWhile = function dropWhileMethod(array, predicate) {
   if (typeof predicate === 'object') {
     if (isArrayLike(predicate)) {
       forEach(array, (element, index) => {
-        for (let key in element) {
+        for (const key in element) {
           if (key === predicate[0] && element[key] !== predicate[1]) {
             dropNumber = index;
           }
