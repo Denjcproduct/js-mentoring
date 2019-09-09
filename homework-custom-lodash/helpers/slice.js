@@ -1,4 +1,3 @@
-// :TODO поправить битовые операторы
 const slice = function sliceMethod(array, start, end) {
   let length = array == null ? 0 : array.length;
   if (!length) {
@@ -13,8 +12,10 @@ const slice = function sliceMethod(array, start, end) {
   if (end < 0) {
     end += length;
   }
-  length = start > end ? 0 : (end - start) >>> 0;
-  start >>>= 0;
+  length = start > end ? 0 : Number(end - start);
+  if (isNaN(start)) {
+    start = 0;
+  }
 
   let index = -1;
   const result = new Array(length);
