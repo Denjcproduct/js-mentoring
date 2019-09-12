@@ -1,0 +1,33 @@
+.wrapper {
+  max-width: 1280px;
+  padding: 0px 20px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputContainer__input {
+  line-height: 30px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  margin-left: 10px;
+}
+
+.inputContainer__label {
+  font-size: 20px;
+}
