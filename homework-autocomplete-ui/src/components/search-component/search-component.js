@@ -1,12 +1,12 @@
-import createInput from './createInput';
-import createResultBlock from './createResultBlock';
-import addInputListeners from './addInputListeners';
-import cities from './data/cities.json';
+import createInput from './utils/createInput';
+import createResultBlock from './utils/createResultBlock';
+import addInputListeners from './utils/addInputListeners';
+import data from './data/data';
 
 const app = function appStart() {
   createInput();
   createResultBlock();
-  addInputListeners('#input', '#result', cities);
+  addInputListeners('#input', '#result', data);
 };
 
 export default app;

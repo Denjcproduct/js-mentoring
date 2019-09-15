@@ -1,5 +1,5 @@
-import Trie from './helpers/trie';
-import capitalizeFirstLetter from './helpers/capitalizeFirstLetter';
+import Trie from '../helpers/trie';
+import capitalizeFirstLetter from '../helpers/capitalizeFirstLetter';
 
 function createAutoComplete(array) {
   const trie = new Trie();
@@ -11,7 +11,7 @@ function createAutoComplete(array) {
     return obj;
   }, {});
   const nonRepeatWords = [...new Set(array)];
-  nonRepeatWords.forEach(word => {
+  nonRepeatWords.forEach((word) => {
     const wordCount = counts[word];
     trie.insert(word, wordCount);
   });
