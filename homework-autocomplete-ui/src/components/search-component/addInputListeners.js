@@ -1,7 +1,15 @@
-const addInputListeners = function addInputListenersMethod(id) {
-  const input = document.querySelector(id);
+import createAutoComplete from './createAutoComplete';
+
+const addInputListeners = function addInputListenersMethod(
+  inputId,
+  resultId,
+  data,
+) {
+  const input = document.querySelector(inputId);
+  const result = document.querySelector(resultId);
+  const autocomplete = createAutoComplete(data);
   input.addEventListener('input', () => {
-    console.log(input.value);
+    result.innerHTML = autocomplete(input.value);
   });
 };
 
