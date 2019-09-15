@@ -6,17 +6,8 @@ class TrieNode {
     this.end = false;
     this.count = null;
   }
-
-  getWord() {
-    const output = [];
-    let node = this;
-    while (node !== null) {
-      output.unshift(node.key);
-      node = node.parent;
-    }
-    return output.join('');
-  }
 }
+
 class Trie {
   constructor() {
     this.root = new TrieNode(null);
@@ -47,27 +38,40 @@ class Trie {
         return output;
       }
     }
-
-    findAllWords(node, output);
-    return output;
+    return findAllWords(node);
   }
 }
-function findAllWords(node, arr) {
+
+function getWord(trieNode) {
+  const output = [];
+  let node = trieNode;
+  while (node !== null) {
+    output.push(node.key);
+    node = node.parent;
+  }
+  output.reverse();
+  return output.join('');
+}
+
+function findAllWords(node, arr = []) {
+  const resultArr = arr;
   if (node.end) {
     for (let k = 0; k < node.count; k++) {
-      arr.push(node.getWord());
+      resultArr.push(getWord(node));
     }
   }
   for (const child in node.children) {
-    findAllWords(node.children[child], arr);
+    findAllWords(node.children[child], resultArr);
   }
+  return resultArr;
 }
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+
+function capitalizeFirstLetter(string, toCapital = true) {
+  return toCapital
+    ? string.charAt(0).toUpperCase() + string.slice(1)
+    : string.charAt(0).toLowerCase() + string.slice(1);
 }
-function lowerFirstLetter(string) {
-  return string.charAt(0).toLowerCase() + string.slice(1);
-}
+
 function createAutoComplete(array) {
   const trie = new Trie();
   const counts = array.reduce((obj, cur) => {
@@ -86,7 +90,7 @@ function createAutoComplete(array) {
     if (!prefix || prefix === '') {
       return [];
     }
-    const prefixInLowerCase = lowerFirstLetter(prefix);
+    const prefixInLowerCase = capitalizeFirstLetter(prefix, false);
     const capitalizePrefix = capitalizeFirstLetter(prefix);
     const lowerResult = trie.find(prefixInLowerCase);
     const upperResult = trie.find(capitalizePrefix);
