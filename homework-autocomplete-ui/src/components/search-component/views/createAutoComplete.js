@@ -16,7 +16,7 @@ function createAutoComplete(array) {
     trie.insert(word, wordCount);
   });
   return function addPrefix(prefix) {
-    if (!prefix || prefix === '') {
+    if (!prefix) {
       return [];
     }
     const prefixInLowerCase = capitalizeFirstLetter(prefix, false);

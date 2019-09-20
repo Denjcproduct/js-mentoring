@@ -1,6 +1,6 @@
-import createInput from './utils/createInput';
-import createResultBlock from './utils/createResultBlock';
-import addInputListeners from './utils/addInputListeners';
+import createInput from './views/createInput';
+import createResultBlock from './views/createResultBlock';
+import addInputListeners from './views/addInputListeners';
 import data from './data/data';
 
 const app = function appStart() {
