@@ -1,9 +1,7 @@
 import createHeader from './utils/createHeader';
 import addEventListenersOnMenu from './utils/addEventListenersOnMenu';
 
-const app = function appStart() {
+export const menu = () => {
   createHeader();
   addEventListenersOnMenu();
 };
-
-export default app;

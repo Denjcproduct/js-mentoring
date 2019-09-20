@@ -6,7 +6,9 @@ const addEventListenersOnMenu = function addEventListenersOnMenuMethod() {
       element.setAttribute('tabindex', '0');
     }
     element.addEventListener('keydown', (event) => {
-      if (event.keyCode === 37) {
+      const pressArrowLeft = event.keyCode === 37;
+      const pressArrowRight = event.keyCode === 39;
+      if (pressArrowLeft) {
         let prevElement = links[index - 1];
         if (prevElement === undefined) {
           prevElement = links[links.length - 1];
@@ -14,9 +16,9 @@ const addEventListenersOnMenu = function addEventListenersOnMenuMethod() {
         element.setAttribute('tabindex', '-1');
         prevElement.focus();
         prevElement.setAttribute('tabindex', '0');
-      } else if (event.keyCode === 39) {
+      } else if (pressArrowRight) {
         let nextElement = links[index + 1];
-        if (nextElement === undefined) {
+        if (!nextElement) {
           nextElement = links[0];
         }
         element.setAttribute('tabindex', '-1');
