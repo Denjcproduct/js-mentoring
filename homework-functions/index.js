@@ -30,7 +30,7 @@ class Trie {
 
   find(prefix) {
     let node = this.root;
-    let output = [];
+    const output = [];
     for (let i = 0; i < prefix.length; i++) {
       if (node.children[prefix[i]]) {
         node = node.children[prefix[i]];
@@ -43,24 +43,24 @@ class Trie {
 }
 
 function getWord(trieNode) {
-  let output = [];
+  const output = [];
   let node = trieNode;
   while (node !== null) {
     output.push(node.key);
     node = node.parent;
   }
   output.reverse();
-  return output.join("");
+  return output.join('');
 }
 
 function findAllWords(node, arr = []) {
-  let resultArr = arr;
+  const resultArr = arr;
   if (node.end) {
     for (let k = 0; k < node.count; k++) {
       resultArr.push(getWord(node));
     }
   }
-  for (let child in node.children) {
+  for (const child in node.children) {
     findAllWords(node.children[child], resultArr);
   }
   return resultArr;
@@ -74,7 +74,7 @@ function capitalizeFirstLetter(string, toCapital = true) {
 
 function createAutoComplete(array) {
   const trie = new Trie();
-  const counts = array.reduce(function(obj, cur) {
+  const counts = array.reduce((obj, cur) => {
     if (!obj[cur]) {
       obj[cur] = 0;
     }
@@ -82,12 +82,12 @@ function createAutoComplete(array) {
     return obj;
   }, {});
   const nonRepeatWords = [...new Set(array)];
-  nonRepeatWords.forEach(word => {
-    let wordCount = counts[word];
+  nonRepeatWords.forEach((word) => {
+    const wordCount = counts[word];
     trie.insert(word, wordCount);
   });
-  return function(prefix) {
-    if (!prefix || prefix === "") {
+  return function (prefix) {
+    if (!prefix || prefix === '') {
       return [];
     }
     const prefixInLowerCase = capitalizeFirstLetter(prefix, false);
