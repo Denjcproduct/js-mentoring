@@ -1,0 +1,7 @@
+.chat__mainContainer {
+  width: 400px;
+  height: 450px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
