@@ -1,4 +1,4 @@
-import createElement from '../../helpers/createElement';
+import createElement from '../helpers/createElement';
 
 const createHeader = function header() {
   const chatHeader = createElement('div', 'chat__header');

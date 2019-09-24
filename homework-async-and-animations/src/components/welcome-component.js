@@ -1,4 +1,4 @@
-import createElement from '../../helpers/createElement';
+import createElement from '../helpers/createElement';
 import welcomeComponentLogic from './welcome-component-logic';
 
 const createWelcomeWindow = function welcomeWindow() {
@@ -7,7 +7,7 @@ const createWelcomeWindow = function welcomeWindow() {
   const welcomeWindowInput = createElement('input', 'welcome__input');
   const welcomeWindowLabel = createElement('label', 'welcome__label');
   const welcomeWindowText = document.createTextNode(
-    'Добро пожаловать в чат, для пользования данным чатом введите ваше Имя'
+    'Добро пожаловать в чат, для пользования данным чатом введите ваше Имя',
   );
   const welcomeButtonText = document.createTextNode('Войти');
   const wrapper = document.querySelector('#app');

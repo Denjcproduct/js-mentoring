@@ -1,0 +1,132 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eaf3fd;
+}
+
+.container {
+  min-width: 400px;
+  height: 600px;
+  border: 1px solid #4a76a8;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome__container {
+  width: 300px;
+  height: 250px;
+  border-radius: 6px;
+  padding: 20px 20px;
+  background-color: #4a76a8;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+.welcome__label {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.welcome__input {
+  height: 30px;
+  border: none;
+  background-color: #eaf3fd;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 0px 10px;
+}
+
+.welcome__button {
+  padding: 6px 10px;
+  margin-top: 20px;
+  border-radius: 6px;
+  background-color: #4a76a8;
+  border: 1px solid #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+
+.welcome__button:hover {
+  border: 1px solid transparent;
+  background-color: #ffffff;
+  color: #4a76a8;
+}
+
+.chat__header {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px;
+  background-color: #4a76a8;
+  color: #ffffff;
+}
+
+.chat__logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.chat__mainContainer {
+  width: 400px;
+  height: 450px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+.chat__inputContainer {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+  background-color: #4a76a8;
+}
+
+.chat__input {
+  width: 200px;
+  height: 30px;
+  border: none;
+  background-color: #eaf3fd;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 0px 10px;
+}
+
+.chat__button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: #4a76a8;
+  border: 1px solid #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+
+.chat__button:hover {
+  border: 1px solid transparent;
+  background-color: #ffffff;
+  color: #4a76a8;
+}
