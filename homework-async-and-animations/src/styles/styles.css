@@ -92,10 +92,11 @@
   overflow-x: hidden;
   overflow-y: auto;
   background-color: #ffffff;
+  padding: 20px;
 }
 
 .chat__inputContainer {
-  height: 90px;
+  height: 95px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -123,10 +124,44 @@
   color: #ffffff;
   transition: all ease 0.3s;
   cursor: pointer;
+  margin-left: 30px;
 }
 
 .chat__button:hover {
   border: 1px solid transparent;
   background-color: #ffffff;
   color: #4a76a8;
+}
+
+.message__container {
+  max-width: 170px;
+  width: 170px;
+  border: 1px solid transparent;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #fdeded;
+  margin-right: auto;
+  display: flex;
+  flex-flow: column;
+  overflow-wrap: break-word;
+}
+
+.message__container + .message__container {
+  margin-top: 20px;
+}
+
+.message__name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.message__time {
+  font-size: 12px;
+  padding-top: 3px;
+  color: rgb(165, 165, 165);
+}
+
+.message__text {
+  font-size: 14px;
+  padding-top: 10px;
 }

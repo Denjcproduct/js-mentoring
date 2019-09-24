@@ -2,15 +2,20 @@ import createElement from '../helpers/createElement';
 
 const createAddMessageInput = function addMessageInput() {
   const chatInputContainer = createElement('div', 'chat__inputContainer');
-  const chatButton = createElement('button', 'chat__button');
+  const chatForm = createElement('form', 'chat__form');
+  const chatButton = createElement('input', 'chat__button');
   const chatInput = createElement('input', 'chat__input');
   const chat = document.querySelector('#chat');
-  const buttonText = document.createTextNode('Отправить');
+  chatForm.setAttribute('name', 'chat');
   chatInput.setAttribute('type', 'text');
+  chatInput.setAttribute('name', 'message');
   chatButton.setAttribute('id', 'addMessageBtn');
-  chatButton.appendChild(buttonText);
-  chatInputContainer.appendChild(chatInput);
-  chatInputContainer.appendChild(chatButton);
+  chatButton.setAttribute('type', 'submit');
+  chatButton.setAttribute('value', 'Отправить');
+  chatForm.appendChild(chatInput);
+  chatForm.appendChild(chatButton);
+  chatInputContainer.setAttribute('id', 'chatFooter');
+  chatInputContainer.appendChild(chatForm);
   chat.appendChild(chatInputContainer);
 };
 
