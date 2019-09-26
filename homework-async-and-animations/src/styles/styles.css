@@ -12,14 +12,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #eaf3fd;
+  background-color: #ffffff;
 }
 
 .container {
-  min-width: 400px;
-  height: 600px;
-  border: 1px solid #4a76a8;
-  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ffffff;
   display: flex;
   flex-direction: column;
 }
@@ -72,6 +71,7 @@
 }
 
 .chat__header {
+  width: 100%;
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -81,14 +81,19 @@
   color: #ffffff;
 }
 
+.chat__logoContainer {
+  width: 40px;
+  height: 40px;
+}
+
 .chat__logo {
-  font-size: 24px;
-  font-weight: bold;
+  width: 100%;
+  height: 100%;
 }
 
 .chat__mainContainer {
-  width: 400px;
-  height: 450px;
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   background-color: #ffffff;
@@ -96,46 +101,52 @@
 }
 
 .chat__inputContainer {
-  height: 95px;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #a59c9c;
+}
+
+.chat__form {
+  width: 100%;
+  height: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0px 30px;
-  background-color: #4a76a8;
+  align-items: center;
 }
 
 .chat__input {
-  width: 200px;
-  height: 30px;
+  width: 95%;
+  height: 100%;
   border: none;
-  background-color: #eaf3fd;
-  border-radius: 6px;
   font-size: 16px;
   padding: 0px 10px;
+  background-color: #eaf3fd;
+  outline: none;
 }
 
 .chat__button {
-  padding: 6px 10px;
-  border-radius: 6px;
-  background-color: #4a76a8;
-  border: 1px solid #ffffff;
-  font-size: 14px;
-  font-weight: bold;
-  color: #ffffff;
+  width: 5%;
+  height: 100%;
+  border: none;
+  background-color: #eaf3fd;
   transition: all ease 0.3s;
   cursor: pointer;
-  margin-left: 30px;
+  padding: 5px;
 }
 
-.chat__button:hover {
-  border: 1px solid transparent;
-  background-color: #ffffff;
-  color: #4a76a8;
+.chat__buttonImage {
+  width: 100%;
+  height: 100%;
+  transition: all ease 0.3s;
+}
+
+.chat__button:hover .chat__buttonImage {
+  transform: scale(0.8);
 }
 
 .message__container {
-  max-width: 170px;
-  width: 170px;
+  min-width: 150px;
+  width: 40%;
   border: 1px solid transparent;
   padding: 10px;
   border-radius: 6px;
