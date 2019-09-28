@@ -1,4 +1,5 @@
-import createElement from '../helpers/createElement';
+import createElement from '../../helpers/createElement';
+import './container-component.css';
 
 const createContainer = function container() {
   const main = createElement('main', 'wrapper');

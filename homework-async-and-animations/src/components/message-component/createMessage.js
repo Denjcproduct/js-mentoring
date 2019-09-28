@@ -1,8 +1,7 @@
-import createElement from './createElement';
-import formatTime from './formatTime';
+import createElement from '../../helpers/createElement';
+import formatTime from '../../helpers/formatTime';
 
-const messageView = function message(data) {
-  const chat = document.querySelector('#chatWindow');
+const createMessage = function message(data) {
   const messageContainer = createElement('div', 'message__container');
   const messageName = createElement('span', 'message__name');
   const messageText = createElement('span', 'message__text');
@@ -16,7 +15,7 @@ const messageView = function message(data) {
   messageContainer.appendChild(messageName);
   messageContainer.appendChild(messageTime);
   messageContainer.appendChild(messageText);
-  chat.appendChild(messageContainer);
+  return messageContainer;
 };
 
-export default messageView;
+export default createMessage;

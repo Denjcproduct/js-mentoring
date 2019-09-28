@@ -1,7 +1,7 @@
-import messageView from './messageView';
+import messageView from '../components/message-component';
 
 const showMessage = function show(data) {
-  data.forEach(element => {
+  data.forEach((element) => {
     messageView(element);
   });
 };
