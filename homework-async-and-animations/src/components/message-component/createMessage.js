@@ -9,12 +9,16 @@ const createMessage = function message(data) {
   const name = document.createTextNode(data.from);
   const text = document.createTextNode(data.message);
   const time = document.createTextNode(formatTime(data.time));
+  const userName = localStorage.getItem('chatUserName');
   messageName.appendChild(name);
   messageText.appendChild(text);
   messageTime.appendChild(time);
   messageContainer.appendChild(messageName);
   messageContainer.appendChild(messageTime);
   messageContainer.appendChild(messageText);
+  if (data.from === userName) {
+    messageContainer.classList.add('my-message');
+  }
   return messageContainer;
 };
 

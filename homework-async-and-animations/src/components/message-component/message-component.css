@@ -4,7 +4,7 @@
   border: 1px solid transparent;
   padding: 10px;
   border-radius: 6px;
-  background-color: #fdeded;
+  background-color: #eeffda;
   margin-right: auto;
   display: flex;
   flex-flow: column;
@@ -29,4 +29,10 @@
 .message__text {
   font-size: 14px;
   padding-top: 10px;
+}
+
+.my-message {
+  background-color: #c3ffca;
+  margin-left: auto;
+  margin-right: 0;
 }

@@ -1,5 +1,6 @@
 import showMessage from '../helpers/showMessage';
 import Messages from './messages';
+import scrollingChat from '../helpers/scrollingChat';
 
 export default window.onload = function webSocketConnect() {
   const socket = new WebSocket('ws://st-chat.shas.tel');
@@ -20,6 +21,7 @@ export default window.onload = function webSocketConnect() {
     const messages = new Messages(JSON.parse(event.data));
     const sortedMessages = messages.sortedMessages();
     showMessage(sortedMessages);
+    scrollingChat();
   };
 
   socket.onerror = function socketOnError(error) {
@@ -28,7 +30,7 @@ export default window.onload = function webSocketConnect() {
   document.forms.chat.onsubmit = function formSubmit() {
     const message = {
       from: localStorage.getItem('chatUserName'),
-      message: this.message.value
+      message: this.message.value,
     };
     const messageToSend = JSON.stringify(message);
     socket.send(messageToSend);

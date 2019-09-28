@@ -8,10 +8,8 @@ const welcomeComponentLogic = function welcomeLogic() {
       alert('Для того чтобы зайти в чат, введите ваше Имя');
     }
     if (welcomeInput.value !== '') {
-      console.log('Вы вошли в чат');
-      welcome.style.display = 'none';
-      chat.style.display = 'flex';
       localStorage.setItem('chatUserName', welcomeInput.value);
+      document.location.reload(true);
     }
   });
 };
