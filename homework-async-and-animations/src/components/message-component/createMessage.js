@@ -1,5 +1,5 @@
+import { format } from 'date-fns';
 import createElement from '../../helpers/createElement';
-import formatTime from '../../helpers/formatTime';
 
 const createMessage = function message(data) {
   const messageContainer = createElement('div', 'message__container');
@@ -8,7 +8,9 @@ const createMessage = function message(data) {
   const messageTime = createElement('span', 'message__time');
   const name = document.createTextNode(data.from);
   const text = document.createTextNode(data.message);
-  const time = document.createTextNode(formatTime(data.time));
+  const time = document.createTextNode(
+    format(data.time, 'dd.MM.yyyy - HH:mm:ss'),
+  );
   const userName = localStorage.getItem('chatUserName');
   messageName.appendChild(name);
   messageText.appendChild(text);
