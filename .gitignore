@@ -1,2 +1,4 @@
 node_modules
-/dist
+/homework-async-and-animations/dist
+dist/
+
