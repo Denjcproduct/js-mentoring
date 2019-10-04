@@ -1,9 +1,10 @@
 class Node {
-  constructor(data) {
-    this.data = data;
+  constructor(key, value) {
+    this.key = key;
+    this.value = value;
     this.left = null;
     this.right = null;
   }
 }
 
-export default Node;
+module.exports = Node;
