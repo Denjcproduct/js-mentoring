@@ -1,10 +1,8 @@
-const BinarySearchTree = require('../src/binary-search-tree');
-
 describe('Check Test Working or Not', () => {
   let bst;
-  beforeEach(() => {
-    bst = new BinarySearchTree();
-  });
+  // beforeEach(() => {
+  //   bst = new BinarySearchTree();
+  // });
 
   it('Check Insert Method in Binary Search Tree when key is not integer number', () => {
     const key = 10;

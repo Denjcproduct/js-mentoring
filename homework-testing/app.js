@@ -1,4 +1,11 @@
-import Node from './node';
+class Node {
+  constructor(key, value) {
+    this.key = key;
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
 
 class BinarySearchTree {
   constructor() {
@@ -6,7 +13,8 @@ class BinarySearchTree {
   }
 
   roots() {
-    return this.root.value;
+    console.log(this.root);
+    return this.root;
   }
 
   insert(key, value) {
@@ -77,31 +85,29 @@ class BinarySearchTree {
     return node;
   }
 
-  find(node, key) {
-    if (node === null) {
-      return null;
+  findMinimumNode(node) {
+    if (node.left === null) {
+      return node;
     }
-    if (key < node.key) {
-      return this.find(node.left, key);
-    }
-    if (key > node.key) {
-      return this.find(node.right, key);
-    }
-    return node;
+    return this.findMinimumNode(node.left);
   }
 
   contains(key) {
-    let current = this.root;
-    while (current) {
-      console.log(current);
-      if (key === current.key) {
-        return true;
+    const result = this.containsHelper(this.root, key);
+    return result;
+  }
+
+  containsHelper(node, key) {
+    if (node.key === key) {
+      return true;
+    }
+    if (key < node.key && key !== node.key) {
+      if (node.left !== null) {
+        return this.containsHelper(node.left, key);
       }
-      if (key < current.key) {
-        current = current.left;
-      }
-      if (key > current.key) {
-        current = current.right;
+    } else if (key > node.key && key !== node.key) {
+      if (node.right !== null) {
+        return this.containsHelper(node.right, key);
       }
     }
     return false;
@@ -110,7 +116,8 @@ class BinarySearchTree {
   search(key) {
     if (!Number.isInteger(key)) {
     } else {
-      return this.searchHelper(this.root, key);
+      const result = this.searchHelper(this.root, key);
+      return result;
     }
   }
 
@@ -118,13 +125,36 @@ class BinarySearchTree {
     if (node.key === key) {
       return node;
     }
-    if (key < node.key && node.left !== null) {
-      console.log(node.left);
-      this.searchHelper(node.left, key);
-    } else if (key > node.key && node.right !== null) {
-      this.searchHelper(node.right, key);
+    if (key < node.key && key !== node.key) {
+      if (node.left !== null) {
+        return this.searchHelper(node.left, key);
+      }
+    } else if (key > node.key && key !== node.key) {
+      if (node.right !== null) {
+        return this.searchHelper(node.right, key);
+      }
     }
+  }
+
+  traverse(callback) {
+    if (typeof callback === undefined) {
+      callback = function (key, value) {
+        console.log(`${key} : ${value}`);
+      };
+    }
+    return traverseHelper(root, callback);
   }
 }
 
-export default BinarySearchTree;
+window.onload = function start() {
+  const bst = new BinarySearchTree();
+  bst.insert(20, '20');
+  bst.insert(30, '30');
+  bst.insert(25, '25');
+  bst.insert(15, '15');
+  bst.insert(10, '10');
+  bst.insert(12, '12');
+  bst.insert(17, '17');
+  console.log(bst);
+  console.log(bst.contains(12));
+};
