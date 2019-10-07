@@ -1,0 +1,43 @@
+.chat__inputContainer {
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #a59c9c;
+}
+
+.chat__form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat__input {
+  width: 95%;
+  height: 100%;
+  border: none;
+  font-size: 16px;
+  padding: 0px 10px;
+  background-color: #eaf3fd;
+  outline: none;
+}
+
+.chat__button {
+  width: 5%;
+  height: 100%;
+  border: none;
+  background-color: #eaf3fd;
+  transition: all ease 0.3s;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.chat__buttonImage {
+  width: 100%;
+  height: 100%;
+  transition: all ease 0.3s;
+}
+
+.chat__button:hover .chat__buttonImage {
+  transform: scale(0.8);
+}
