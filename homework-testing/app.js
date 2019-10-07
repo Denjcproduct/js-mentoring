@@ -136,13 +136,52 @@ class BinarySearchTree {
     }
   }
 
-  traverse(callback) {
-    if (typeof callback === undefined) {
-      callback = function (key, value) {
-        console.log(`${key} : ${value}`);
-      };
+  traverse(order) {}
+
+  preOrderTraverse(traverseNode) {
+    const output = [];
+    function preOrder(node) {
+      if (node === null) {
+        return;
+      }
+      output.push(node.key);
+      preOrder(node.left);
+      preOrder(node.right);
     }
-    return traverseHelper(root, callback);
+    preOrder(traverseNode);
+
+    return output;
+  }
+
+  inOrderTraverse(traverseNode) {
+    const output = [];
+
+    function inOrder(node) {
+      if (node === null) {
+        return;
+      }
+      inOrder(node.left);
+      output.push(node.key);
+      inOrder(node.right);
+    }
+    inOrder(traverseNode);
+
+    return output;
+  }
+
+  postOrderTraverse(traverseNode) {
+    const output = [];
+
+    function postOrder(node) {
+      if (node === null) {
+        return;
+      }
+      postOrder(node.left);
+      postOrder(node.right);
+      output.push(node.key);
+    }
+    postOrder(traverseNode);
+    return output;
   }
 }
 
