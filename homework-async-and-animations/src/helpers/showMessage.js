@@ -2,7 +2,7 @@ import messageView from '../components/message-component';
 
 const showMessage = function show(data) {
   data.forEach((element) => {
-    messageView(element);
+    messageView('#chatWindow', element);
   });
 };
 

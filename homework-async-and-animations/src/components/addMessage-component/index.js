@@ -3,8 +3,8 @@ import createInput from './createInput';
 import createSendBtn from './createSendBtn';
 import './addMessage-component.css';
 
-const createAddMessageComponent = function addMessageComponent() {
-  const chat = document.querySelector('#chat');
+const createAddMessageComponent = function addMessageComponent(selector) {
+  const chat = document.querySelector(selector);
   const chatInputContainer = createElement('div', 'chat__inputContainer');
   const chatForm = createElement('form', 'chat__form');
   const chatInput = createInput();
