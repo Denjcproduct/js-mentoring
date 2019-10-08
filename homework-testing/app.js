@@ -13,8 +13,7 @@ class BinarySearchTree {
   }
 
   roots() {
-    console.log(this.root);
-    return this.root;
+    return this.root.value;
   }
 
   insert(key, value) {
@@ -27,6 +26,38 @@ class BinarySearchTree {
     } else {
       this.insertNode(this.root, newNode);
     }
+  }
+
+  delete(key) {
+    if (!Number.isInteger(key)) {
+      return;
+    }
+    this.root = this.deleteNode(this.root, key);
+  }
+
+  search(key) {
+    if (!Number.isInteger(key)) {
+    } else {
+      const result = this.searchHelper(this.root, key);
+      return result;
+    }
+  }
+
+  contains(value) {
+    const result = this.fromLeftToRightTraverse(this.root);
+    return result.includes(value);
+  }
+
+  traverse(order) {
+    if (order) {
+      return this.fromLeftToRightTraverse(this.root);
+    }
+    return this.fromRightToLeftTraverse(this.root);
+  }
+
+  verify() {
+    const result = this.verifyHelper(this.root);
+    return result;
   }
 
   insertNode(node, newNode) {
@@ -45,13 +76,6 @@ class BinarySearchTree {
         this.insertNode(node.right, newNode);
       }
     }
-  }
-
-  delete(key) {
-    if (!Number.isInteger(key)) {
-      return;
-    }
-    this.root = this.deleteNode(this.root, key);
   }
 
   deleteNode(node, key) {
@@ -85,42 +109,6 @@ class BinarySearchTree {
     return node;
   }
 
-  findMinimumNode(node) {
-    if (node.left === null) {
-      return node;
-    }
-    return this.findMinimumNode(node.left);
-  }
-
-  contains(key) {
-    const result = this.containsHelper(this.root, key);
-    return result;
-  }
-
-  containsHelper(node, key) {
-    if (node.key === key) {
-      return true;
-    }
-    if (key < node.key && key !== node.key) {
-      if (node.left !== null) {
-        return this.containsHelper(node.left, key);
-      }
-    } else if (key > node.key && key !== node.key) {
-      if (node.right !== null) {
-        return this.containsHelper(node.right, key);
-      }
-    }
-    return false;
-  }
-
-  search(key) {
-    if (!Number.isInteger(key)) {
-    } else {
-      const result = this.searchHelper(this.root, key);
-      return result;
-    }
-  }
-
   searchHelper(node, key) {
     if (node.key === key) {
       return node;
@@ -136,24 +124,7 @@ class BinarySearchTree {
     }
   }
 
-  traverse(order) {}
-
-  preOrderTraverse(traverseNode) {
-    const output = [];
-    function preOrder(node) {
-      if (node === null) {
-        return;
-      }
-      output.push(node.key);
-      preOrder(node.left);
-      preOrder(node.right);
-    }
-    preOrder(traverseNode);
-
-    return output;
-  }
-
-  inOrderTraverse(traverseNode) {
+  fromLeftToRightTraverse(traverseNode) {
     const output = [];
 
     function inOrder(node) {
@@ -161,7 +132,7 @@ class BinarySearchTree {
         return;
       }
       inOrder(node.left);
-      output.push(node.key);
+      output.push(node.value);
       inOrder(node.right);
     }
     inOrder(traverseNode);
@@ -169,19 +140,43 @@ class BinarySearchTree {
     return output;
   }
 
-  postOrderTraverse(traverseNode) {
+  findMinimumNode(node) {
+    if (node.left === null) {
+      return node;
+    }
+    return this.findMinimumNode(node.left);
+  }
+
+  fromRightToLeftTraverse(traverseNode) {
     const output = [];
 
-    function postOrder(node) {
+    function notInOrder(node) {
       if (node === null) {
         return;
       }
-      postOrder(node.left);
-      postOrder(node.right);
-      output.push(node.key);
+      notInOrder(node.right);
+      output.push(node.value);
+      notInOrder(node.left);
     }
-    postOrder(traverseNode);
+    notInOrder(traverseNode);
+
     return output;
+  }
+
+  verifyHelper(node, min = null, max = null) {
+    if (max !== null && node.key > max) {
+      return false;
+    }
+    if (min !== null && node.key < min) {
+      return false;
+    }
+    if (node.left && !this.verifyHelper(node.left, min, node.key)) {
+      return false;
+    }
+    if (node.tight && !this.verifyHelper(node.right, node.key, max)) {
+      return false;
+    }
+    return true;
   }
 }
 
@@ -194,6 +189,7 @@ window.onload = function start() {
   bst.insert(10, '10');
   bst.insert(12, '12');
   bst.insert(17, '17');
+  console.log(bst.contains('30'));
+  console.log(bst.verify());
   console.log(bst);
-  console.log(bst.contains(12));
 };
