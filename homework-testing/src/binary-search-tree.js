@@ -22,9 +22,6 @@ class BinarySearchTree {
   }
 
   delete(key) {
-    if (!Number.isInteger(key)) {
-      return;
-    }
     this.root = this.deleteNode(this.root, key);
   }
 
@@ -71,34 +68,61 @@ class BinarySearchTree {
     }
   }
 
-  deleteNode(node, key) {
-    if (node === null) {
-      return null;
+  deleteNode(root, key) {
+    if (root !== null) {
+      let current = root;
+      const stack = [];
+      while (current) {
+        stack.push(current);
+        if (current.key === key) {
+          stack.pop();
+          const parent = stack.pop();
+          if (!current.left && !current.right) {
+            if (parent && parent.left && parent.left.key === current.key) {
+              parent.left = null;
+            } else if (parent) {
+              parent.right = null;
+            } else {
+              root = [];
+            }
+          } else if (current.left && !current.right) {
+            if (parent && parent.left && parent.left.key === current.key) {
+              parent.left = current.left;
+            } else if (parent) {
+              parent.right = current.left;
+            } else {
+              root = current.left;
+            }
+          } else if (current.right && !current.left) {
+            if (parent && parent.left && parent.left.key === current.key) {
+              parent.left = current.right;
+            } else if (parent) {
+              parent.right = current.right;
+            } else {
+              root = current.right;
+            }
+          } else {
+            const minNode = current.right;
+            while (minNode) {
+              if (minNode.left) {
+                monNode = minNode.left;
+              } else {
+                break;
+              }
+            }
+            current = this.deleteNode(current, minNode.key);
+            current.key = minNode.key;
+            current.value = minNode.value;
+          }
+          break;
+        } else if (key < current.key) {
+          current = current.left;
+        } else if (key > current.key) {
+          current = current.right;
+        }
+      }
     }
-    if (key < node.key) {
-      node.left = this.deleteNode(node.left, key);
-      return node;
-    }
-    if (key > node.key) {
-      node.right = this.deleteNode(node.right, key);
-      return node;
-    }
-    if (node.left === null && node.right === null) {
-      node = null;
-      return node;
-    }
-    if (node.left === null) {
-      node = node.right;
-      return node;
-    }
-    if (node.right === null) {
-      node = node.left;
-      return node;
-    }
-    const aux = this.findMinimumNode(node.right);
-    node.key = aux.key;
-    node.right = this.deleteNode(node.right, aux.key);
-    return node;
+    return root;
   }
 
   searchHelper(node, key) {
@@ -158,20 +182,17 @@ class BinarySearchTree {
     return this.findMinimumNode(node.left);
   }
 
-  verifyHelper(node, min = null, max = null) {
-    if (node === null) {
-      return null;
+  verifyHelper(node) {
+    if (!node) {
+      return true;
     }
-    if (max !== null && node.key > max) {
+    if (node.left !== null && node.left.key > node.key) {
       return false;
     }
-    if (min !== null && node.key < min) {
+    if (node.right !== null && node.right.key < node.key) {
       return false;
     }
-    if (node.left && !this.verifyHelper(node.left, min, node.key)) {
-      return false;
-    }
-    if (node.tight && !this.verifyHelper(node.right, node.key, max)) {
+    if (!this.verifyHelper(node.left) || !this.verifyHelper(node.right)) {
       return false;
     }
     return true;
