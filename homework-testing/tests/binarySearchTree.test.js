@@ -44,17 +44,14 @@ describe('Binary Search Tree', () => {
       const result = bst.roots();
       expect(result).toEqual(value);
     });
+
+    it('Roots Method should return null if tree is empty', () => {
+      const result = bst.roots();
+      expect(result).toEqual(null);
+    });
   });
 
   describe('#insert', () => {
-    it('Insert Method in Binary Search Tree when key is not integer number', () => {
-      const key = 10.5;
-      const value = 'Value';
-      bst.insert(key, value);
-      const result = bst.root;
-      expect(result).toEqual(null);
-    });
-
     it('Insert Method should fill the root if tree is empty', () => {
       const key = 10;
       const value = '10';
@@ -73,17 +70,15 @@ describe('Binary Search Tree', () => {
       expect(firstValue).toEqual('15');
       expect(lastValue).toEqual('100');
     });
+
+    it('Insert Method should replace value if key that is being added is already there', () => {
+      bst.insert(10, 'value1 10');
+      bst.insert(10, 'value2 10');
+      expect(bst.root.value).toEqual('value2 10');
+    });
   });
 
   describe('#search', () => {
-    it('Search Method in Binary Search Tree with key is not integer number', () => {
-      valuesArray.forEach((element) => {
-        bst.insert(element.key, element.value);
-      });
-      const result = bst.search(27.7);
-      expect(result).toEqual(false);
-    });
-
     it('Search Method in Binary Search Tree with key = 27', () => {
       valuesArray.forEach((element) => {
         bst.insert(element.key, element.value);
@@ -91,6 +86,18 @@ describe('Binary Search Tree', () => {
       const result = bst.search(27);
       const searchKeyRoot = bst.root.left.right;
       expect(result).toEqual(searchKeyRoot);
+    });
+
+    it('Search Method in Binary Search Tree when tree is empty', () => {
+      expect(bst.search(27)).toEqual(null);
+    });
+
+    it('Search Method in Binary Search Tree when tree has no this key', () => {
+      valuesArray.forEach((element) => {
+        bst.insert(element.key, element.value);
+      });
+      const result = bst.search(5);
+      expect(result).toEqual(undefined);
     });
   });
 
@@ -147,7 +154,6 @@ describe('Binary Search Tree', () => {
       });
       bst.root.right.right.key = 59;
       bst.root.right.right.value = '59';
-      console.log(bst.root);
       const result = bst.verify();
       expect(result).toEqual(false);
     });

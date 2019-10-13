@@ -6,13 +6,13 @@ class BinarySearchTree {
   }
 
   roots() {
+    if (this.root === null) {
+      return null;
+    }
     return this.root.value;
   }
 
   insert(key, value) {
-    if (!Number.isInteger(key)) {
-      return;
-    }
     const newNode = new Node(key, value);
     if (this.root === null) {
       this.root = newNode;
@@ -26,9 +26,6 @@ class BinarySearchTree {
   }
 
   search(key) {
-    if (!Number.isInteger(key)) {
-      return false;
-    }
     const result = this.searchHelper(this.root, key);
     return result;
   }
