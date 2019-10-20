@@ -1,4 +1,5 @@
 node_modules
 /homework-async-and-animations/dist
 dist/
+.env
 
