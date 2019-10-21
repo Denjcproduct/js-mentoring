@@ -1,8 +1,8 @@
 const createUrlsMassive = function createMassive(string) {
-  const stringArray = string.split('http://');
+  const stringArray = string.split(';');
   const resultArray = stringArray.map((url) => {
     const re = /\s+/g;
-    return `http://${url.replace(re, '')}`;
+    return `${url.replace(re, '')}`;
   });
   return resultArray;
 };
