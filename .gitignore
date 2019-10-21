@@ -1,4 +1,3 @@
 node_modules
-/homework-async-and-animations/dist
-dist/
-
+/dist
+/.vscode
