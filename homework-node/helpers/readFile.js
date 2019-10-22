@@ -1,5 +1,5 @@
 const fs = require('fs');
-const createUrlsMassive = require('./helpers/createUrlsMassive');
+const createUrlsMassive = require('./createUrlsMassive');
 
 const getUrls = function urls(pathToFile) {
   return new Promise((resolve, reject) => {
