@@ -3,18 +3,15 @@ const deleteFile = require('./helpers/deleteFile');
 const getDataAndWriteFile = require('./helpers/getPageSpeedAndWriteResults');
 
 async function app(fileWithUrl, fileWithResult) {
-  await deleteFile(fileWithResult);
-  await deleteFile('./error.txt');
-  const urls = await getUrls(fileWithUrl);
-  urls.forEach((url) => {
-    getDataAndWriteFile(url, fileWithResult, './error.txt');
-  });
-
-  // const start = Promise.resolve();
-  // urls.reduce((prev, url) => {
-  //   console.log(prev);
-  //   return prev.then(getDataAndWriteFile(url, fileWithResult, './error.txt'));
-  // }, start);
+  try {
+    await Promise.all([deleteFile(fileWithResult), deleteFile('./error.txt')]);
+    const urls = await getUrls(fileWithUrl);
+    for (const url of urls) {
+      await getDataAndWriteFile(url, fileWithResult, './error.txt');
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 app('./urls.txt', './result.txt');

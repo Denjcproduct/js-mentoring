@@ -1,9 +1,10 @@
 const fs = require('fs');
+const { promisify } = require('util');
 
-const deleteFile = function fileDelete(pathToFile) {
-  return new Promise((resolve, reject) => {
-    resolve(fs.unlink(pathToFile, (err) => reject(err)));
-  });
+const deleteFileAsync = promisify(fs.unlink);
+
+const deleteFile = (pathToFile) => {
+  deleteFileAsync(pathToFile);
 };
 
 module.exports = deleteFile;

@@ -1,11 +1,10 @@
 const fs = require('fs');
+const { promisify } = require('util');
 
-const writeFile = function write(data, pathToFile) {
-  return new Promise((resolve, reject) => {
-    resolve(
-      fs.writeFile(pathToFile, data, { flag: 'a+' }, (error) => reject(error)),
-    );
-  });
+const writeFileAsync = promisify(fs.writeFile);
+
+const writeFile = (data, pathToFile) => {
+  writeFileAsync(pathToFile, data, { flag: 'a+' });
 };
 
 module.exports = writeFile;

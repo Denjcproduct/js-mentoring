@@ -1,27 +1,18 @@
 const request = require('request-promise');
 const { googleApi } = require('../config');
 
-const fetchToPageSpeed = function fetch(url) {
-  return new Promise((resolve, reject) => {
-    const options = {
-      method: 'GET',
-      uri: 'https://www.googleapis.com/pagespeedonline/v4/runPagespeed',
-      qs: {
-        key: `${googleApi}`,
-        url,
-      },
-      json: true,
-    };
-    if (url) {
-      request(options)
-        .then((response) => {
-          resolve(response);
-        })
-        .catch((error) => {
-          reject(error);
-        });
-    }
-  });
+const fetchToPageSpeed = async function fetch(url) {
+  const options = {
+    method: 'GET',
+    uri: 'https://www.googleapis.com/pagespeedonline/v4/runPagespeed',
+    qs: {
+      key: `${googleApi}`,
+      url,
+    },
+    json: true,
+  };
+  const pageSpeedData = await request(options);
+  return pageSpeedData;
 };
 
 module.exports = fetchToPageSpeed;
