@@ -1,15 +1,15 @@
 const request = require('request-promise');
-const { googleApi } = require('../config');
+const { googleApi, googleApiUrl } = require('../config');
 
-const fetchToPageSpeed = async function fetch(url) {
+const fetchToPageSpeed = async url => {
   const options = {
     method: 'GET',
-    uri: 'https://www.googleapis.com/pagespeedonline/v4/runPagespeed',
+    uri: `${googleApiUrl}`,
     qs: {
       key: `${googleApi}`,
-      url,
+      url
     },
-    json: true,
+    json: true
   };
   const pageSpeedData = await request(options);
   return pageSpeedData;

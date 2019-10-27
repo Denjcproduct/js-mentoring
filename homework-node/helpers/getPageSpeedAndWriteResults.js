@@ -1,11 +1,7 @@
 const fetchToPageSpeed = require('./fetchToPageSpeed');
 const writeFile = require('./writeFile');
 
-const getDataAndWriteFile = async function dataForPageSpeed(
-  url,
-  pathToResultFile,
-  pathToErrorsFile,
-) {
+const getDataAndWriteFile = async (url, pathToResultFile, pathToErrorsFile) => {
   try {
     console.log('fetchToPageSpeed start');
     const response = await fetchToPageSpeed(url);
