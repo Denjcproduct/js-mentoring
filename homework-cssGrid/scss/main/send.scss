@@ -1,6 +1,6 @@
 .send__section {
   width: 100%;
-  background-color: #eaeaeb;
+  background-color: $colorLightGrey;
   padding: 66px 0px 60px 0px;
 }
 
@@ -34,20 +34,11 @@
 }
 
 .send__cardTitleText {
-  color: #384048;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 24px;
-  text-transform: uppercase;
-  padding-left: 15px;
+  @include titleTextWithPaddingLeft(15px);
 }
 
 .send__cardLine {
-  height: 2px;
-  width: 100%;
-  background-color: #293139;
-  opacity: 0.06;
-  margin-top: 20px;
+  @include lineStyle(20px);
 }
 
 .send__cardText {
@@ -55,23 +46,23 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  color: #787b80;
+  color: $textColorGrey;
 }
 
 .send__cardBtn {
   margin-top: 34px;
-  color: #f5f5f5;
+  color: $colorWhite;
   font-size: 14px;
   font-weight: 400;
   border: 2px solid transparent;
-  background-color: #50c3af;
+  background-color: $colorGreen;
   padding: 9px 24px;
   border-radius: 32px;
   transition: all ease 0.3s;
 }
 
 .send__cardBtn:hover {
-  background-color: #ffffff;
-  border: 2px solid #50c3af;
-  color: #50c3af;
+  background-color: $colorWhite;
+  border: 2px solid $colorGreen;
+  color: $colorGreen;
 }

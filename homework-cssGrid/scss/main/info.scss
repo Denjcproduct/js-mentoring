@@ -18,12 +18,7 @@
 }
 
 .info__cardTitle {
-  margin-top: 40px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #384048;
-  text-transform: uppercase;
-  line-height: 24px;
+  @include titleTextWithMarginTop(40px);
 }
 
 .info__cardImageContainer {
@@ -37,17 +32,13 @@
 }
 
 .info__cardLine {
-  height: 2px;
-  width: 100%;
-  background-color: #293139;
-  opacity: 0.06;
-  margin-top: 20px;
+  @include lineStyle(20px);
 }
 
 .info__cardDsc {
   font-size: 14px;
   font-weight: 400;
-  color: #787b80;
+  color: $textColorGrey;
   line-height: 24px;
   margin-top: 26px;
 }
@@ -59,11 +50,11 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  color: #50c3af;
+  color: $colorGreen;
   transition: color ease 0.3s;
   text-decoration: none;
 }
 
 .info__cardBtn:hover {
-  color: #787b80;
+  color: $textColorGrey;
 }
