@@ -1,3 +1,7 @@
 node_modules
-/dist
-/.vscode
+/homework-async-and-animations/dist
+dist/
+.env
+error.txt
+result.txt
+
