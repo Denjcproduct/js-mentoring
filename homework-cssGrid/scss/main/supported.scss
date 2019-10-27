@@ -1,0 +1,64 @@
+.supported__section {
+  width: 100%;
+  background-color: #eaeaeb;
+  padding: 70px 0px 64px 0px;
+}
+
+.supported__titleContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.supported__titleIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.supported__titleImage {
+  width: 100%;
+  height: 100%;
+}
+
+.supported__titleText {
+  font-size: 18px;
+  color: #384048;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding-left: 15px;
+}
+
+.supported__line {
+  width: 100%;
+  height: 2px;
+  opacity: 0.06;
+  background-color: #293139;
+  margin-top: 24px;
+}
+
+.supported__text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #787d80;
+  margin-top: 26px;
+}
+
+.supported__button {
+  margin-top: 38px;
+  color: #f5f5f5;
+  font-size: 14px;
+  font-weight: 400;
+  border: 2px solid transparent;
+  background-color: #d2d5da;
+  padding: 9px 24px;
+  border-radius: 32px;
+  transition: all ease 0.3s;
+}
+
+.supported__button:hover {
+  background-color: #ffffff;
+  border: 2px solid #d2d5da;
+  color: #d2d5da;
+}

@@ -1,0 +1,77 @@
+.send__section {
+  width: 100%;
+  background-color: #eaeaeb;
+  padding: 66px 0px 60px 0px;
+}
+
+.send__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.send__card {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.send__cardTitleContainer {
+  display: flex;
+  align-items: center;
+}
+
+.send__cardTitleIcon {
+  width: 24px;
+  height: 20px;
+}
+
+.send__cardTitleImage {
+  width: 100%;
+  height: 100%;
+}
+
+.send__cardTitleText {
+  color: #384048;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding-left: 15px;
+}
+
+.send__cardLine {
+  height: 2px;
+  width: 100%;
+  background-color: #293139;
+  opacity: 0.06;
+  margin-top: 20px;
+}
+
+.send__cardText {
+  margin-top: 30px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #787b80;
+}
+
+.send__cardBtn {
+  margin-top: 34px;
+  color: #f5f5f5;
+  font-size: 14px;
+  font-weight: 400;
+  border: 2px solid transparent;
+  background-color: #50c3af;
+  padding: 9px 24px;
+  border-radius: 32px;
+  transition: all ease 0.3s;
+}
+
+.send__cardBtn:hover {
+  background-color: #ffffff;
+  border: 2px solid #50c3af;
+  color: #50c3af;
+}
