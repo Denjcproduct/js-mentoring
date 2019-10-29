@@ -1,11 +1,67 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $mainFontFamily;
 }
-.main__wrapper {
+
+.wrapper {
   max-width: 980px;
   width: 100%;
   margin: 0 auto;
   position: relative;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 0px 30px;
+  @media (max-width: 1080px) {
+    max-width: 780px;
+  }
+  @media (max-width: 850px) {
+    max-width: 600px;
+  }
+  @media (max-width: 670px) {
+    max-width: 500px;
+  }
+  @media (max-width: 570px) {
+    max-width: 400px;
+    padding: 0px 10px;
+  }
+  @media (max-width: 430px) {
+    max-width: 300px;
+    padding: 0px 3px;
+  }
+}
+
+.small-button {
+  margin-top: 34px;
+  color: $colorWhite;
+  font-size: $smallBtnFontSize;
+  font-weight: 400;
+  border: 2px solid transparent;
+  padding: 9px 24px;
+  border-radius: 32px;
+  transition: all ease 0.3s;
+}
+
+.green-button {
+  background-color: $colorGreen;
+}
+
+.green-button:hover {
+  background-color: $colorWhite;
+  border: 2px solid $colorGreen;
+  color: $colorGreen;
+}
+
+.grey-button {
+  background-color: $colorGrey;
+}
+
+.grey-button:hover {
+  background-color: $colorWhite;
+  border: 2px solid $colorGrey;
+  color: $colorGrey;
+}
+
+.line {
+  height: 2px;
+  width: 100%;
+  background-color: $lineBackgroundColor;
+  opacity: 0.06;
+  margin-top: 24px;
 }

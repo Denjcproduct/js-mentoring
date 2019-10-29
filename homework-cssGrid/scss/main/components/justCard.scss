@@ -1,0 +1,43 @@
+.justCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 670px) {
+    flex-direction: column;
+  }
+  .justCard__imageContainer {
+    width: 40%;
+    height: auto;
+    @media (max-width: 670px) {
+      width: 100%;
+    }
+
+    .justCard__image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .justCard__infoContainer {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    @media (max-width: 670px) {
+      width: 100%;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .justCard__title {
+      @include titleText(0px, 0px);
+    }
+
+    .justCard__text {
+      @include descriptionText(left, 30px);
+      @media (max-width: 670px) {
+        @include descriptionText(center, 30px);
+      }
+    }
+  }
+}

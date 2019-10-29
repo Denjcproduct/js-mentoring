@@ -1,0 +1,22 @@
+.menu {
+  .menu__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu__link {
+    color: $colorWhite;
+    text-decoration: none;
+    font-size: $headerLinkFontSize;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 24px;
+    border-bottom: 1px solid transparent;
+    transition: border ease 0.3s;
+  }
+
+  .menu__link:hover {
+    border-bottom: 1px solid $colorWhite;
+  }
+}

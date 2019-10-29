@@ -1,68 +1,16 @@
-.send__section {
+.send {
   width: 100%;
   background-color: $colorLightGrey;
   padding: 66px 0px 60px 0px;
-}
 
-.send__container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.send__card {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.send__cardTitleContainer {
-  display: flex;
-  align-items: center;
-}
-
-.send__cardTitleIcon {
-  width: 24px;
-  height: 20px;
-}
-
-.send__cardTitleImage {
-  width: 100%;
-  height: 100%;
-}
-
-.send__cardTitleText {
-  @include titleTextWithPaddingLeft(15px);
-}
-
-.send__cardLine {
-  @include lineStyle(20px);
-}
-
-.send__cardText {
-  margin-top: 30px;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  color: $textColorGrey;
-}
-
-.send__cardBtn {
-  margin-top: 34px;
-  color: $colorWhite;
-  font-size: 14px;
-  font-weight: 400;
-  border: 2px solid transparent;
-  background-color: $colorGreen;
-  padding: 9px 24px;
-  border-radius: 32px;
-  transition: all ease 0.3s;
-}
-
-.send__cardBtn:hover {
-  background-color: $colorWhite;
-  border: 2px solid $colorGreen;
-  color: $colorGreen;
+  .send__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 1080px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }

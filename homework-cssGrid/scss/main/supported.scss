@@ -1,55 +1,41 @@
-.supported__section {
+.supported {
   width: 100%;
   background-color: $colorLightGrey;
   padding: 70px 0px 64px 0px;
-}
+  .supported__wrapper {
+    @media (max-width: 670px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @media (max-width: 670px) {
+      justify-content: center;
+    }
+    .title__iconContainer {
+      width: 24px;
+      height: 24px;
 
-.supported__titleContainer {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
+      .title__icon {
+        width: 100%;
+        height: 100%;
+      }
+    }
 
-.supported__titleIcon {
-  width: 24px;
-  height: 24px;
-}
+    .title__text {
+      @include titleText(15px, 0px);
+    }
+  }
 
-.supported__titleImage {
-  width: 100%;
-  height: 100%;
-}
-
-.supported__titleText {
-  @include titleTextWithPaddingLeft(15px);
-}
-
-.supported__line {
-  @include lineStyle(24px);
-}
-
-.supported__text {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  color: $textColorGrey;
-  margin-top: 26px;
-}
-
-.supported__button {
-  margin-top: 38px;
-  color: $colorWhite;
-  font-size: 14px;
-  font-weight: 400;
-  border: 2px solid transparent;
-  background-color: $colorGrey;
-  padding: 9px 24px;
-  border-radius: 32px;
-  transition: all ease 0.3s;
-}
-
-.supported__button:hover {
-  background-color: $colorWhite;
-  border: 2px solid $colorGrey;
-  color: $colorGrey;
+  .supported__text {
+    @include descriptionText(left, 26px);
+    @media (max-width: 670px) {
+      @include descriptionText(center, 26px);
+    }
+  }
 }

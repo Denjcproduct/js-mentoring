@@ -1,4 +1,13 @@
-@import './main/colors.scss';
+@import './main/variables.scss';
+@import './main/components/bigBtn.scss';
+@import './main/components/smallCard.scss';
+@import './main/components/bigCard.scss';
+@import './main/components/mediumCard.scss';
+@import './main/components/sendCard.scss';
+@import './main/components/justCard.scss';
+@import './main/components/slider.scss';
+@import './main/components/socials.scss';
+@import './main/components/menu.scss';
 @import './main/header.scss';
 @import './main/main.scss';
 @import './main/features.scss';

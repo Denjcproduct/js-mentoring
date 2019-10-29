@@ -1,60 +1,14 @@
-.info__section {
+.info {
   width: 100%;
   padding: 60px 0px 70px 0px;
-}
 
-.info__container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.info__card {
-  width: 260px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.info__cardTitle {
-  @include titleTextWithMarginTop(40px);
-}
-
-.info__cardImageContainer {
-  width: 100%;
-  height: auto;
-}
-
-.info__cardImage {
-  width: 100%;
-  height: 100%;
-}
-
-.info__cardLine {
-  @include lineStyle(20px);
-}
-
-.info__cardDsc {
-  font-size: 14px;
-  font-weight: 400;
-  color: $textColorGrey;
-  line-height: 24px;
-  margin-top: 26px;
-}
-
-.info__cardBtn {
-  margin-top: 30px;
-  background-color: transparent;
-  border: none;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  color: $colorGreen;
-  transition: color ease 0.3s;
-  text-decoration: none;
-}
-
-.info__cardBtn:hover {
-  color: $textColorGrey;
+  .info__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 1080px) {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
 }
