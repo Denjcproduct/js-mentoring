@@ -1,0 +1,23 @@
+.features {
+  width: 100%;
+  height: 40vh;
+  background-color: $colorLightGrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+  @media (max-width: 670px) {
+    height: 100vh;
+  }
+
+  .features__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 670px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

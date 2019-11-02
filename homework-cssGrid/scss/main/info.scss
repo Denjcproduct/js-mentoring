@@ -1,0 +1,14 @@
+.info {
+  width: 100%;
+  padding: 60px 0px 70px 0px;
+
+  .info__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 1080px) {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

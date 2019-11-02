@@ -1,0 +1,40 @@
+$colorWhite: #ffffff;
+$colorGreen: #50c3af;
+$colorGrey: #d2d5da;
+$colorLightGrey: #eaeaeb;
+$textColorGrey: #787d80;
+$textColorBlack: #384048;
+$lineBackgroundColor: #293139;
+$headerDarknessBackgroundColor: rgba(0, 0, 0, 0.5);
+$mainFontFamily: 'Open Sans', sans-serif;
+$logoFontFamily: 'Shadows Into Light', cursive;
+$headerLogoFontSize: 52px;
+$headerLinkFontSize: 13px;
+$headerTitleFontSize: 53px;
+$headerDescriptionFontSize: 15px;
+$headerButtonFontSize: 15px;
+$titleFontSize: 18px;
+$smallBtnFontSize: 14px;
+$descriptionFontSize: 14px;
+$footerCopyrightText: 13px;
+$sponsorsTitleTextFontSize: 15px;
+$sponsorsFontSize: 26px;
+
+@mixin titleText($padding, $margin) {
+  color: $textColorBlack;
+  font-size: $titleFontSize;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding-left: $padding;
+  margin-top: $margin;
+}
+
+@mixin descriptionText($textAlign, $margin) {
+  color: $textColorGrey;
+  font-size: $descriptionFontSize;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: $textAlign;
+  margin-top: $margin;
+}

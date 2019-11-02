@@ -1,0 +1,49 @@
+.sponsors {
+  width: 100%;
+  background-color: $colorGreen;
+  padding: 54px 0px 73px 0px;
+
+  .sponsors__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .title__iconContainer {
+        width: 18px;
+        height: 18px;
+
+        .title__icon {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .title__text {
+        font-size: $sponsorsTitleTextFontSize;
+        color: $colorWhite;
+        font-weight: 700;
+        line-height: 24px;
+        text-transform: uppercase;
+        padding-left: 10px;
+      }
+    }
+
+    .sponsors__line {
+      height: 2px;
+      background-color: $colorWhite;
+      opacity: 0.1;
+      width: 30%;
+      margin-top: 24px;
+    }
+
+    .sponsors__slider {
+      margin-top: 40px;
+    }
+  }
+}

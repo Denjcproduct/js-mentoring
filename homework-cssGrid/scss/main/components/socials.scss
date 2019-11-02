@@ -1,0 +1,22 @@
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .socials__logoContainer {
+    width: 18px;
+    height: 18px;
+
+    .socials__logo {
+      width: 100%;
+      height: 100%;
+    }
+    .socials__logo:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .socials__logoContainer + .socials__logoContainer {
+    padding-left: 15px;
+  }
+}

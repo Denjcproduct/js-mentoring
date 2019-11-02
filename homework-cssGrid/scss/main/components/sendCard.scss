@@ -1,0 +1,45 @@
+.sendCard {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  @media (max-width: 1080px) {
+    width: 80%;
+    align-items: center;
+  }
+  @media (max-width: 570px) {
+    width: 100%;
+  }
+  .sendCard__titleContainer {
+    display: flex;
+    align-items: center;
+
+    .sendCard__iconContainer {
+      width: 24px;
+      height: 20px;
+
+      .sendCard__icon {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .sendCard__title {
+      @include titleText(15px, 0px);
+    }
+  }
+
+  .sendCard__text {
+    @include descriptionText(left, 30px);
+    @media (max-width: 1080px) {
+      @include descriptionText(center, 30px);
+    }
+  }
+}
+
+@media (max-width: 1080px) {
+  .sendCard + .sendCard {
+    margin-top: 60px;
+  }
+}

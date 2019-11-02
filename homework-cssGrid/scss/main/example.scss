@@ -1,0 +1,24 @@
+.example {
+  width: 100%;
+  background-color: $colorWhite;
+  padding: 65px 0px 80px 0px;
+  margin: 0 auto;
+
+  .example__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 670px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .example__bigCard + .example__bigCard {
+      padding-left: 60px;
+      @media (max-width: 670px) {
+        padding-left: 0px;
+        margin-top: 50px;
+      }
+    }
+  }
+}

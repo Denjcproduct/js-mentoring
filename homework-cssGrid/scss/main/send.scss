@@ -1,0 +1,16 @@
+.send {
+  width: 100%;
+  background-color: $colorLightGrey;
+  padding: 66px 0px 60px 0px;
+
+  .send__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 1080px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
